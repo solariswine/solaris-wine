@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Solaris Wine | Premium Portuguese Wines</title>
 
   <link rel="stylesheet" href="style.css" />
 
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 
 <body>
@@ -18,7 +16,7 @@
   <div class="hero-box">
     <div class="label">Imported from Portugal</div>
     <h1>Solaris Wine</h1>
-    <p>Premium Portuguese wines curated for dining, hotels, wine bars and private gatherings.</p>
+    <p>Premium Portuguese wines selected for restaurants, hotels, wine bars and private gatherings.</p>
 
     <div class="hero-actions">
       <a href="#collection" class="btn btn-main">View Collection</a>
@@ -30,7 +28,7 @@
 <section class="section intro">
   <div class="container">
     <div class="label">Solaris Wine</div>
-    <h2>Curated Portuguese Wines for Thailand & Laos</h2>
+    <h2>Selected Portuguese Wines for Thailand & Laos</h2>
     <p>
       A refined selection of Portuguese wines for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.
     </p>
@@ -147,7 +145,7 @@
         <div class="info">
           <span>Red Wine</span>
           <h3>Raio de Luz Vinho Tinto</h3>
-          <p>Modern Douro red with vibrant personality.</p>
+          <p>Modern red wine with vibrant personality.</p>
           <strong>1,090 THB</strong>
           <button onclick="addToCart('Raio de Luz Vinho Tinto', 1090)">Add to Cart</button>
         </div>
@@ -202,8 +200,24 @@
         Total: <span id="total">0</span> THB
       </div>
 
-      <div class="payment-note">
-        <p><b>Payment:</b> PromptPay QR or bank transfer will be confirmed after order.</p>
+      <div class="payment-box">
+        <h3>Payment Options</h3>
+
+        <div class="payment-options">
+          <button class="payment-btn">
+            <i class="fa-solid fa-qrcode"></i>
+            PromptPay
+          </button>
+
+          <button class="payment-btn">
+            <i class="fa-solid fa-building-columns"></i>
+            Bank Transfer
+          </button>
+        </div>
+
+        <p>
+          After placing your order, we will confirm stock, delivery fee and send PromptPay QR or bank account details via WhatsApp.
+        </p>
       </div>
 
       <a id="whatsappOrder" href="https://wa.me/66961644422" target="_blank" class="pay whatsapp-pay">
@@ -218,35 +232,40 @@
     <div class="label">Contact Solaris Wine</div>
     <h2>Let’s Talk Wine</h2>
     <p class="contact-subtitle">
-      For retail orders, restaurant supply, wine bars, hotels and private events.
+      For wine orders, restaurant supply, hotel service, wine bars and private events.
     </p>
 
-    <div class="contact-links">
+    <div class="contact-details">
 
       <a href="https://wa.me/66961644422" target="_blank" class="contact-btn">
         <i class="fab fa-whatsapp"></i>
         WhatsApp
       </a>
+      <p>+66 961644422</p>
 
       <a href="https://line.me/R/ti/p/@solariswine" target="_blank" class="contact-btn">
         <i class="fa-brands fa-line"></i>
         LINE
       </a>
+      <p>@solariswine</p>
 
       <a href="mailto:solarisintertrade@gmail.com" class="contact-btn">
         <i class="fa-solid fa-envelope"></i>
         Email
       </a>
+      <p>solarisintertrade@gmail.com</p>
 
       <a href="https://instagram.com/" target="_blank" class="contact-btn">
         <i class="fa-brands fa-instagram"></i>
         Instagram
       </a>
+      <p>Instagram profile coming soon</p>
 
       <a href="https://facebook.com/" target="_blank" class="contact-btn">
         <i class="fa-brands fa-facebook-f"></i>
         Facebook
       </a>
+      <p>Facebook page coming soon</p>
 
     </div>
   </div>
@@ -286,7 +305,6 @@ function increaseQty(name) {
 
 function decreaseQty(name) {
   const item = cart.find(item => item.name === name);
-
   if (!item) return;
 
   item.qty--;
@@ -330,9 +348,7 @@ function renderCart() {
           <button onclick="increaseQty('${item.name}')">+</button>
         </div>
 
-        <div class="subtotal">
-          ${subtotal.toLocaleString()} THB
-        </div>
+        <div class="subtotal">${subtotal.toLocaleString()} THB</div>
       </div>
     `;
   });
