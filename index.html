@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,89 +6,100 @@
   <title>Solaris Wine | Premium Portuguese Wines</title>
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
 <header class="hero">
-  <div class="hero-box">
-    <div class="label">Imported from Portugal</div>
+  <div class="hero-panel">
+    <p class="eyebrow">Imported from Portugal</p>
     <h1>Solaris Wine</h1>
-    <p>Premium Portuguese wines selected for restaurants, hotels, wine bars and private gatherings.</p>
+    <p class="hero-text">
+      Premium Portuguese wines selected for restaurants, hotels, wine bars and private gatherings.
+    </p>
 
     <div class="hero-actions">
-      <a href="#collection" class="btn primary">View Collection</a>
-      <a href="https://wa.me/66961644422" target="_blank" class="btn outline">Order via WhatsApp</a>
+      <a href="#collection" class="btn btn-primary">View Collection</a>
+      <a href="https://wa.me/66961644422" target="_blank" class="btn btn-outline">Order via WhatsApp</a>
     </div>
   </div>
 </header>
 
-<section class="intro section">
+<section class="intro">
   <div class="container">
-    <div class="label">Solaris Wine</div>
+    <p class="eyebrow">Solaris Wine</p>
     <h2>Selected Portuguese Wines for Thailand & Laos</h2>
-    <p>A refined selection of Portuguese wines for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.</p>
+    <p class="lead">
+      A refined selection of Portuguese wines for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.
+    </p>
   </div>
 </section>
 
-<section class="collection section" id="collection">
+<section class="collection" id="collection">
   <div class="container">
-
-    <div class="section-head">
+    <div class="section-top">
       <div>
-        <div class="label">Our Collection</div>
+        <p class="eyebrow">Our Collection</p>
         <h2>Wine Portfolio</h2>
       </div>
 
-      <div class="arrows">
+      <div class="nav-arrows">
         <button onclick="slideWine(-1)">‹</button>
         <button onclick="slideWine(1)">›</button>
       </div>
     </div>
 
-    <div class="slider" id="wineSlider"></div>
-
+    <div class="wine-slider" id="wineSlider"></div>
   </div>
 </section>
 
-<section class="cart section">
+<section class="cart">
   <div class="container">
-    <div class="label">Shopping Cart</div>
+    <p class="eyebrow">Shopping Cart</p>
     <h2>Your Order</h2>
 
     <div class="cart-box">
-      <div id="cartItems" class="empty">No items yet.</div>
+      <div id="cartItems" class="empty-cart">No items yet.</div>
 
-      <div class="total">Total: <span id="total">0</span> THB</div>
+      <div class="cart-total">
+        Total: <span id="total">0</span> THB
+      </div>
 
       <div class="payment-box">
         <h3>Payment Options</h3>
 
-        <div class="payment-options">
-          <button><i class="fa-solid fa-qrcode"></i> PromptPay</button>
-          <button><i class="fa-solid fa-building-columns"></i> Bank Transfer</button>
+        <div class="payment-grid">
+          <div><i class="fa-solid fa-qrcode"></i> PromptPay</div>
+          <div><i class="fa-solid fa-building-columns"></i> Bank Transfer</div>
         </div>
 
-        <p>After placing your order, we will confirm stock, delivery fee and send PromptPay QR or bank account details via WhatsApp.</p>
+        <p>
+          After placing your order, we will confirm stock, delivery fee and send PromptPay QR or bank account details via WhatsApp.
+        </p>
       </div>
 
-      <a id="whatsappOrder" href="https://wa.me/66961644422" target="_blank" class="send-order">
+      <a id="whatsappOrder" class="send-order" href="https://wa.me/66961644422" target="_blank">
         Send Order via WhatsApp
       </a>
     </div>
   </div>
 </section>
 
-<section class="contact section">
+<section class="contact">
   <div class="container">
-    <div class="label">Contact Solaris Wine</div>
+    <p class="eyebrow">Contact Solaris Wine</p>
     <h2>Let’s Talk Wine</h2>
-    <p class="contact-subtitle">For wine orders, restaurant supply, hotel service, wine bars and private events.</p>
+    <p class="contact-lead">
+      For wine orders, restaurant supply, hotel service, wine bars and private events.
+    </p>
 
     <div class="contact-grid">
 
-      <a href="https://wa.me/66961644422" target="_blank" class="contact-card">
+      <a href="https://wa.me/66961644422" target="_blank" class="contact-card whatsapp">
         <i class="fab fa-whatsapp"></i>
         <div>
           <strong>WhatsApp</strong>
@@ -96,7 +107,7 @@
         </div>
       </a>
 
-      <a href="https://line.me/R/ti/p/@solariswine" target="_blank" class="contact-card">
+      <a href="https://line.me/R/ti/p/@solariswine" target="_blank" class="contact-card line">
         <i class="fa-brands fa-line"></i>
         <div>
           <strong>LINE</strong>
@@ -104,7 +115,7 @@
         </div>
       </a>
 
-      <a href="mailto:solarisintertrade@gmail.com" class="contact-card">
+      <a href="mailto:solarisintertrade@gmail.com" class="contact-card email">
         <i class="fa-solid fa-envelope"></i>
         <div>
           <strong>Email</strong>
@@ -147,9 +158,9 @@ const slider = document.getElementById("wineSlider");
 
 wines.forEach((wine, index) => {
   slider.innerHTML += `
-    <article class="card">
+    <article class="wine-card">
       <img src="${images[index % images.length]}" alt="${wine[0]}">
-      <div class="card-body">
+      <div class="wine-info">
         <span>${wine[1]}</span>
         <h3>${wine[0]}</h3>
         <p>${wine[3]}</p>
@@ -163,32 +174,25 @@ wines.forEach((wine, index) => {
 let cart = [];
 
 function slideWine(direction){
-  slider.scrollBy({ left: direction * 320, behavior: "smooth" });
+  slider.scrollBy({ left: direction * 330, behavior: "smooth" });
 }
 
 function addToCart(name, price){
-  const existing = cart.find(item => item.name === name);
-  if(existing){
-    existing.qty++;
-  }else{
-    cart.push({name, price, qty:1});
-  }
+  const item = cart.find(x => x.name === name);
+  if(item) item.qty++;
+  else cart.push({name, price, qty:1});
   renderCart();
 }
 
 function increaseQty(name){
-  const item = cart.find(item => item.name === name);
-  if(item) item.qty++;
+  cart.find(x => x.name === name).qty++;
   renderCart();
 }
 
 function decreaseQty(name){
-  const item = cart.find(item => item.name === name);
-  if(!item) return;
+  const item = cart.find(x => x.name === name);
   item.qty--;
-  if(item.qty <= 0){
-    cart = cart.filter(product => product.name !== name);
-  }
+  if(item.qty <= 0) cart = cart.filter(x => x.name !== name);
   renderCart();
 }
 
@@ -199,11 +203,13 @@ function renderCart(){
 
   if(cart.length === 0){
     cartItems.innerHTML = "No items yet.";
+    cartItems.className = "empty-cart";
     totalBox.innerText = "0";
     whatsapp.href = "https://wa.me/66961644422";
     return;
   }
 
+  cartItems.className = "";
   let total = 0;
   cartItems.innerHTML = "";
 
@@ -218,7 +224,7 @@ function renderCart(){
           <small>${item.price.toLocaleString()} THB / bottle</small>
         </div>
 
-        <div class="qty">
+        <div class="qty-control">
           <button onclick="decreaseQty('${item.name}')">−</button>
           <span>${item.qty}</span>
           <button onclick="increaseQty('${item.name}')">+</button>
