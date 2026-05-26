@@ -1,20 +1,3 @@
-/* =========================
-   SOLARIS WINE — PREMIUM GSIC STYLE
-========================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-:root{
-  --bg:#050505;
-  --card:#0d0d0d;
-  --gold:#c9a45c;
-  --white:#f5f1e8;
-  --text:#b9b9b9;
-  --line:rgba(255,255,255,.08);
-  --red:#8f0008;
-  --green:#25d366;
-}
-
 *{
   margin:0;
   padding:0;
@@ -26,480 +9,420 @@ html{
 }
 
 body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--white);
+  background:#000;
+  color:#f5f1e8;
+  font-family:Arial, sans-serif;
   overflow-x:hidden;
-  line-height:1.5;
-}
-
-/* =========================
-   GLOBAL
-========================= */
-
-section{
-  padding:90px 22px;
 }
 
 .container{
-  width:100%;
-  max-width:1280px;
+  max-width:1180px;
   margin:auto;
+  padding:0 20px;
 }
 
-.section-label{
-  color:var(--gold);
-  font-size:14px;
-  font-weight:700;
-  letter-spacing:7px;
-  margin-bottom:18px;
+.section{
+  padding:74px 0;
+}
+
+.label{
+  color:#c9a45c;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:4px;
   text-transform:uppercase;
+  margin-bottom:14px;
 }
 
-.section-title{
-  font-size:clamp(44px,7vw,110px);
-  line-height:.95;
-  font-weight:800;
-  letter-spacing:-3px;
-  margin-bottom:28px;
+h2{
+  font-size:42px;
+  line-height:1.05;
+  margin-bottom:18px;
 }
 
-.section-description{
-  max-width:760px;
-  color:var(--text);
-  font-size:clamp(18px,2vw,28px);
-  line-height:1.9;
-}
-
-/* =========================
-   HERO
-========================= */
-
+/* HERO */
 .hero{
   min-height:100vh;
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:40px 20px;
-  overflow:hidden;
-}
-
-.hero-bg{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:brightness(.28) blur(2px);
-  transform:scale(1.05);
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
+  padding:22px;
   background:
-  linear-gradient(to bottom,
-  rgba(0,0,0,.45),
-  rgba(0,0,0,.7));
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.82)),
+    url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1600&auto=format&fit=crop")
+    center/cover;
 }
 
-.hero-card{
-  position:relative;
-  z-index:2;
+.hero-box{
   width:100%;
-  max-width:760px;
-  background:rgba(0,0,0,.55);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:38px;
-  backdrop-filter:blur(18px);
-  padding:55px 34px;
+  max-width:560px;
+  padding:36px 22px;
+  border-radius:28px;
   text-align:center;
+  background:rgba(0,0,0,.62);
+  border:1px solid rgba(255,255,255,.08);
 }
 
-.hero-top{
-  color:var(--gold);
-  letter-spacing:9px;
-  font-size:15px;
-  font-weight:700;
+.hero h1{
+  font-size:48px;
+  line-height:.96;
+  margin:16px 0;
+}
+
+.hero p{
+  font-size:16px;
+  line-height:1.65;
+  color:#cfcfcf;
   margin-bottom:26px;
 }
 
-.hero-title{
-  font-size:clamp(68px,10vw,150px);
-  line-height:.88;
-  font-weight:800;
-  letter-spacing:-5px;
-  margin-bottom:34px;
-}
-
-.hero-text{
-  font-size:clamp(20px,2.3vw,31px);
-  color:#d2d2d2;
-  line-height:1.9;
-  margin-bottom:42px;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.hero-buttons{
+.hero-actions{
   display:flex;
   flex-direction:column;
-  gap:18px;
+  gap:12px;
 }
 
 .btn{
-  width:100%;
-  border:none;
+  display:block;
+  padding:14px 20px;
   border-radius:999px;
-  padding:22px 34px;
-  font-size:clamp(18px,2vw,28px);
-  font-weight:700;
-  cursor:pointer;
-  transition:.3s;
   text-decoration:none;
+  font-size:15px;
+  font-weight:bold;
+}
+
+.primary{
+  background:#6d1020;
+  color:#f5f1e8;
+}
+
+.outline{
+  border:1px solid rgba(255,255,255,.18);
+  color:#f5f1e8;
+}
+
+/* INTRO */
+.intro p{
+  max-width:720px;
+  font-size:16px;
+  line-height:1.75;
+  color:#aaa;
+}
+
+/* COLLECTION */
+.section-head{
   display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.btn-primary{
-  background:var(--red);
-  color:#fff;
-}
-
-.btn-primary:hover{
-  transform:translateY(-2px);
-  background:#a4000b;
-}
-
-.btn-outline{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.12);
-  color:var(--green);
-}
-
-.btn-outline:hover{
-  background:rgba(255,255,255,.04);
-}
-
-/* =========================
-   INTRO
-========================= */
-
-.intro{
-  background:#000;
-}
-
-/* =========================
-   COLLECTION
-========================= */
-
-.collection{
-  background:#000;
-  overflow:hidden;
-}
-
-.collection-header{
-  margin-bottom:50px;
-}
-
-.collection-wrapper{
-  position:relative;
-}
-
-.collection-scroll{
-  display:flex;
-  gap:24px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding-bottom:10px;
-}
-
-.collection-scroll::-webkit-scrollbar{
-  display:none;
-}
-
-.wine-card{
-  min-width:360px;
-  max-width:360px;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:32px;
-  overflow:hidden;
-  flex-shrink:0;
-}
-
-.wine-image{
-  width:100%;
-  height:360px;
-  object-fit:cover;
-}
-
-.wine-content{
-  padding:34px 30px 36px;
-}
-
-.wine-type{
-  color:var(--gold);
-  letter-spacing:6px;
-  font-size:14px;
-  font-weight:700;
-  margin-bottom:18px;
-}
-
-.wine-name{
-  font-size:52px;
-  line-height:1;
-  font-weight:800;
-  margin-bottom:22px;
-}
-
-.wine-description{
-  color:var(--text);
-  font-size:20px;
-  line-height:1.8;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
   margin-bottom:26px;
 }
 
-.wine-price{
-  font-size:54px;
-  font-weight:800;
-  margin-bottom:28px;
+.arrows{
+  display:flex;
+  gap:10px;
 }
 
-.add-cart-btn{
+.arrows button{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.15);
+  background:#111;
+  color:#f5f1e8;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.slider{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding-bottom:20px;
+}
+
+.slider::-webkit-scrollbar{
+  display:none;
+}
+
+.card{
+  flex:0 0 300px;
+  max-width:300px;
+  scroll-snap-align:start;
+  background:#0d0d0d;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:22px;
+  overflow:hidden;
+}
+
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+.card-body{
+  padding:20px;
+}
+
+.card-body span{
+  display:block;
+  color:#c9a45c;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.card-body h3{
+  font-size:23px;
+  line-height:1.12;
+  margin-bottom:10px;
+}
+
+.card-body p{
+  font-size:14px;
+  line-height:1.55;
+  color:#aaa;
+  margin-bottom:14px;
+}
+
+.card-body strong{
+  display:block;
+  font-size:22px;
+  margin-bottom:14px;
+}
+
+.card-body button{
   width:100%;
   border:none;
   border-radius:999px;
-  background:var(--red);
-  color:#fff;
-  padding:20px;
-  font-size:24px;
-  font-weight:700;
+  padding:13px;
+  background:#6d1020;
+  color:#f5f1e8;
+  font-size:15px;
+  font-weight:bold;
   cursor:pointer;
-  transition:.3s;
 }
 
-.add-cart-btn:hover{
-  background:#a3000a;
-}
-
-/* =========================
-   CART
-========================= */
-
+/* CART */
 .cart{
-  background:#050505;
+  border-top:1px solid rgba(255,255,255,.06);
 }
 
 .cart-box{
-  max-width:760px;
-  margin:auto;
-  background:#080808;
-  border:1px solid var(--line);
-  border-radius:34px;
-  padding:36px;
+  margin-top:26px;
+  padding:22px;
+  border-radius:22px;
+  background:#0b0b0b;
+  border:1px solid rgba(255,255,255,.08);
 }
 
-.empty-cart{
-  color:#c8c8c8;
-  font-size:24px;
-  margin-bottom:28px;
-}
-
-.cart-divider{
-  height:1px;
-  background:var(--line);
-  margin:28px 0;
+.empty{
+  color:#aaa;
+  font-size:16px;
 }
 
 .cart-item{
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  margin-bottom:22px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.cart-item-name{
-  font-size:20px;
-  max-width:70%;
+.cart-item strong{
+  display:block;
+  font-size:15px;
+  margin-bottom:4px;
 }
 
-.cart-item-price{
-  font-size:20px;
-  font-weight:700;
+.cart-item small{
+  color:#888;
+  font-size:13px;
 }
 
-.qty-controls{
+.qty{
   display:flex;
   align-items:center;
-  gap:12px;
-  margin-top:14px;
+  gap:10px;
 }
 
-.qty-btn{
-  width:40px;
-  height:40px;
+.qty button{
+  width:32px;
+  height:32px;
   border-radius:50%;
-  border:none;
-  background:#171717;
+  border:1px solid rgba(255,255,255,.15);
+  background:#151515;
   color:#fff;
-  font-size:20px;
-  cursor:pointer;
+  font-size:18px;
 }
 
-.qty-number{
-  font-size:18px;
+.qty span{
   min-width:20px;
   text-align:center;
 }
 
+.cart-item b{
+  color:#c9a45c;
+}
+
 .total{
-  font-size:58px;
-  line-height:1;
-  font-weight:800;
-  margin-bottom:28px;
+  margin-top:20px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.08);
+  font-size:26px;
+  font-weight:bold;
 }
 
-.payment-note{
-  color:#a7a7a7;
+.payment-box{
+  margin-top:20px;
+  padding:17px;
+  border-radius:18px;
+  background:#080808;
+  border:1px solid rgba(201,164,92,.18);
+}
+
+.payment-box h3{
   font-size:18px;
-  line-height:1.8;
-  margin-bottom:28px;
+  margin-bottom:12px;
 }
 
-.payment-buttons{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
+.payment-options{
+  display:grid;
+  gap:10px;
+  margin-bottom:12px;
 }
 
-/* =========================
-   CONTACT
-========================= */
-
-.contact{
-  background:#000;
+.payment-options button{
+  padding:13px;
+  border-radius:999px;
+  background:#111;
+  color:#f5f1e8;
+  border:1px solid rgba(201,164,92,.25);
+  font-weight:bold;
 }
 
-.contact-header{
+.payment-options i{
+  color:#c9a45c;
+  margin-right:8px;
+}
+
+.payment-box p{
+  color:#aaa;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.send-order{
+  display:block;
+  margin-top:18px;
   text-align:center;
-  margin-bottom:50px;
+  text-decoration:none;
+  padding:15px;
+  border-radius:999px;
+  background:#6d1020;
+  color:#f5f1e8;
+  font-weight:bold;
+}
+
+/* CONTACT */
+.contact{
+  text-align:center;
+}
+
+.contact-subtitle{
+  max-width:620px;
+  margin:0 auto 28px;
+  color:#aaa;
+  font-size:16px;
+  line-height:1.65;
 }
 
 .contact-grid{
-  max-width:1000px;
-  margin:auto;
+  max-width:760px;
+  margin:34px auto 0;
   display:grid;
-  grid-template-columns:1fr;
-  gap:18px;
+  gap:14px;
 }
 
 .contact-card{
-  background:#090909;
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:22px 26px;
   display:flex;
   align-items:center;
-  gap:18px;
+  gap:16px;
+  padding:18px;
+  border-radius:18px;
+  background:#0d0d0d;
+  border:1px solid rgba(255,255,255,.08);
   text-decoration:none;
-  transition:.3s;
+  color:#f5f1e8;
+  text-align:left;
 }
 
-.contact-card:hover{
-  border-color:rgba(201,164,92,.4);
-  transform:translateY(-2px);
-}
-
-.contact-icon{
-  width:56px;
-  height:56px;
+.contact-card i{
+  width:42px;
+  height:42px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   background:rgba(201,164,92,.08);
-  color:var(--gold);
-  font-size:24px;
+  color:#c9a45c;
+  font-size:20px;
   flex-shrink:0;
 }
 
-.contact-info{
-  display:flex;
-  flex-direction:column;
-}
-
-.contact-title{
-  color:var(--white);
-  font-size:24px;
-  font-weight:700;
+.contact-card strong{
+  display:block;
+  font-size:16px;
   margin-bottom:4px;
 }
 
-.contact-detail{
-  color:#a8a8a8;
-  font-size:18px;
+.contact-card span{
+  display:block;
+  color:#aaa;
+  font-size:14px;
   word-break:break-word;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-  border-top:1px solid var(--line);
-  padding:34px 20px;
+footer{
+  padding:30px 20px;
   text-align:center;
-  color:#8d8d8d;
-  font-size:16px;
+  color:#777;
+  font-size:13px;
+  border-top:1px solid rgba(255,255,255,.06);
 }
 
-/* =========================
-   FLOAT BUTTON
-========================= */
+/* DESKTOP */
+@media(min-width:768px){
+  .hero h1{
+    font-size:68px;
+  }
 
-.scroll-top{
-  position:fixed;
-  right:24px;
-  bottom:24px;
-  width:62px;
-  height:62px;
-  border-radius:50%;
-  border:none;
-  background:rgba(255,255,255,.14);
-  backdrop-filter:blur(10px);
-  color:#fff;
-  font-size:22px;
-  cursor:pointer;
-  z-index:999;
-}
-
-/* =========================
-   DESKTOP
-========================= */
-
-@media(min-width:900px){
-
-  .hero-buttons{
+  .hero-actions{
     flex-direction:row;
+    justify-content:center;
   }
 
   .btn{
-    width:auto;
-    flex:1;
+    min-width:180px;
   }
 
-  .collection-scroll{
-    gap:34px;
+  h2{
+    font-size:52px;
   }
 
-  .wine-card{
-    min-width:430px;
-    max-width:430px;
+  .payment-options{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cart-item{
+    grid-template-columns:1fr auto auto;
+    align-items:center;
   }
 
   .contact-grid{
@@ -507,83 +430,63 @@ section{
   }
 
   .contact-card{
-    min-height:150px;
+    flex-direction:column;
+    text-align:center;
+    justify-content:center;
+    min-height:145px;
   }
-
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:768px){
-
-  section{
-    padding:70px 18px;
+/* MOBILE */
+@media(max-width:767px){
+  .section{
+    padding:64px 0;
   }
 
-  .hero-card{
-    padding:44px 24px;
-    border-radius:28px;
+  .hero{
+    padding:20px;
   }
 
-  .hero-top{
-    font-size:12px;
-    letter-spacing:6px;
+  .hero-box{
+    padding:32px 20px;
+    border-radius:26px;
   }
 
-  .hero-title{
-    font-size:74px;
-    letter-spacing:-3px;
+  .hero h1{
+    font-size:40px;
   }
 
-  .hero-text{
-    font-size:20px;
-    line-height:1.8;
+  .hero p{
+    font-size:15px;
   }
 
-  .section-title{
-    font-size:72px;
-    line-height:1.02;
-    letter-spacing:-2px;
+  h2{
+    font-size:32px;
   }
 
-  .section-description{
-    font-size:18px;
-    line-height:1.9;
+  .intro h2,
+  .contact h2{
+    font-size:34px;
   }
 
-  .wine-card{
-    min-width:86vw;
-    max-width:86vw;
+  .card{
+    flex:0 0 82%;
+    max-width:82%;
   }
 
-  .wine-image{
-    height:300px;
+  .card img{
+    height:220px;
   }
 
-  .wine-name{
-    font-size:44px;
+  .card-body h3{
+    font-size:23px;
   }
 
-  .wine-description{
-    font-size:18px;
-  }
-
-  .wine-price{
-    font-size:46px;
+  .arrows{
+    display:none;
   }
 
   .total{
-    font-size:50px;
+    font-size:24px;
   }
-
-  .contact-title{
-    font-size:22px;
-  }
-
-  .contact-detail{
-    font-size:16px;
-  }
-
 }
