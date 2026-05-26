@@ -105,7 +105,53 @@ footer{text-align:center;padding:30px 20px;color:#777;font-size:13px;border-top:
       </div>
     </div>
 
-    <div class="slider" id="wineSlider"></div>
+    <div class="slider" id="wineSlider">
+
+  <article class="card">
+    <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop">
+    <div class="info">
+      <div class="type">Red Wine</div>
+      <h3>Mariana Vinho Tinto</h3>
+      <p class="desc">Elegant Portuguese red wine with smooth texture.</p>
+      <div class="price">890 THB</div>
+      <button class="add" onclick="addToCart('Mariana Vinho Tinto',890)">Add to Cart</button>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop">
+    <div class="info">
+      <div class="type">White Wine</div>
+      <h3>Mariana Vinho Branco</h3>
+      <p class="desc">Fresh and balanced white wine for seafood.</p>
+      <div class="price">750 THB</div>
+      <button class="add" onclick="addToCart('Mariana Vinho Branco',750)">Add to Cart</button>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?q=80&w=1000&auto=format&fit=crop">
+    <div class="info">
+      <div class="type">Rosé Wine</div>
+      <h3>Mariana Vinho Rosé</h3>
+      <p class="desc">Light, modern and refreshing rosé.</p>
+      <div class="price">750 THB</div>
+      <button class="add" onclick="addToCart('Mariana Vinho Rosé',750)">Add to Cart</button>
+    </div>
+  </article>
+
+  <article class="card">
+    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop">
+    <div class="info">
+      <div class="type">Vinho Verde</div>
+      <h3>Goivo Vinho Verde</h3>
+      <p class="desc">Bright, crisp and refreshing Portuguese wine.</p>
+      <div class="price">690 THB</div>
+      <button class="add" onclick="addToCart('Goivo Vinho Verde',690)">Add to Cart</button>
+    </div>
+  </article>
+
+</div>
   </div>
 </section>
 
@@ -135,40 +181,11 @@ footer{text-align:center;padding:30px 20px;color:#777;font-size:13px;border-top:
 <footer>© 2026 Solaris Wine. Premium Portuguese Wines.</footer>
 
 <script>
-const wines = [
-  ["Mariana Vinho Tinto","Red Wine",890,"Elegant Portuguese red wine with smooth texture.","https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop"],
-  ["Mariana Vinho Branco","White Wine",750,"Fresh and balanced white wine for seafood.","https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop"],
-  ["Mariana Vinho Rosé","Rosé Wine",750,"Light, modern and refreshing rosé.","https://images.unsplash.com/photo-1474722883778-792e7990302f?q=80&w=1000&auto=format&fit=crop"],
-  ["Rocim Vindima Vinho Tinto","Red Wine",1390,"Modern Portuguese red with elegant structure.","https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop"],
-  ["Rocim Vinho Branco","White Wine",1290,"Clean, refined and elegant Portuguese white.","https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1000&auto=format&fit=crop"],
-  ["Rocim Vinho Tinto Reserva","Reserve Red",1890,"Premium reserve wine with depth and balance.","https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?q=80&w=1000&auto=format&fit=crop"],
-  ["Vale de Mata Vinho Tinto","Red Wine",1490,"Refined red wine with Portuguese character.","https://images.unsplash.com/photo-1528823872057-9c018a7a7553?q=80&w=1000&auto=format&fit=crop"],
-  ["Vale de Mata Vinho Branco","White Wine",1390,"Fresh and modern white wine from Portugal.","https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop"],
-  ["Raio de Luz Vinho Tinto","Red Wine",1090,"Modern Douro red with vibrant personality.","https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop"],
-  ["Raio de Luz Vinho Branco","White Wine",990,"Fresh Portuguese white with elegant balance.","https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop"],
-  ["Goivo Vinho Verde","Vinho Verde",690,"Bright, crisp and refreshing.","https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop"],
-  ["Alicante Bouschet Vinho Tinto","Red Wine",2490,"Deep, bold and expressive premium red.","https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1000&auto=format&fit=crop"]
-];
 
 let cart = [];
 let total = 0;
 
 const slider = document.getElementById("wineSlider");
-
-wines.forEach(w => {
-  slider.innerHTML += `
-    <article class="card">
-      <img src="${w[4]}" alt="${w[0]}">
-      <div class="info">
-        <div class="type">${w[1]}</div>
-        <h3>${w[0]}</h3>
-        <p class="desc">${w[3]}</p>
-        <div class="price">${w[2].toLocaleString()} THB</div>
-        <button class="add" onclick="addToCart('${w[0]}',${w[2]})">Add to Cart</button>
-      </div>
-    </article>
-  `;
-});
 
 function slideWine(direction){
   slider.scrollBy({ left: direction * 370, behavior: "smooth" });
