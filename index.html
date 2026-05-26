@@ -2,70 +2,326 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Solaris Wine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solaris Wine | Premium Portuguese Wines</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:Arial,sans-serif;background:#050505;color:#f5f1e8;overflow-x:hidden}
-
-.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.78)),url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1600&auto=format&fit=crop") center/cover;display:flex;align-items:center;justify-content:center;padding:28px}
-.hero-box{max-width:520px;text-align:center;background:rgba(0,0,0,.45);padding:42px 28px;border-radius:26px;border:1px solid rgba(255,255,255,.08)}
-.label{color:#c9a45c;letter-spacing:4px;font-size:12px;font-weight:bold;text-transform:uppercase}
-.hero h1{font-size:54px;line-height:1;margin:20px 0 14px}
-.hero p{font-size:18px;color:#ddd;line-height:1.5;margin-bottom:26px}
-.btn{display:inline-block;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:bold;font-size:15px}
-.primary{background:#6e0f1a;color:#f5f1e8}
-.outline{border:1px solid rgba(245,241,232,.35);color:#f5f1e8;margin-top:12px}
-
-.section{padding:82px 22px}
-.container{max-width:1180px;margin:auto}
-.section h2{font-size:38px;line-height:1.08;margin:14px 0 18px}
-.text{font-size:17px;color:#bbb;line-height:1.8;max-width:720px}
-
-.collection-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}
-.arrows{display:flex;gap:10px}
-.arrow{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:#111;color:#f5f1e8;font-size:22px;cursor:pointer}
-
-.slider{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:8px 0 22px;scrollbar-width:none}
-.slider::-webkit-scrollbar{display:none}
-
-.card{flex:0 0 82%;max-width:82%;scroll-snap-align:start;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden}
-.card img{width:100%;height:230px;object-fit:cover;display:block}
-.info{padding:22px}
-.type{color:#c9a45c;letter-spacing:3px;font-size:11px;font-weight:bold;text-transform:uppercase;margin-bottom:12px}
-.card h3{font-size:26px;line-height:1.15;margin-bottom:12px}
-.desc{font-size:15px;color:#aaa;line-height:1.6;margin-bottom:16px}
-.price{font-size:22px;font-weight:bold;margin-bottom:16px}
-.add{width:100%;border:none;border-radius:999px;background:#6e0f1a;color:#f5f1e8;padding:13px;font-weight:bold;font-size:15px}
-
-.cart{background:#090909;border-top:1px solid rgba(255,255,255,.08)}
-.cart-box{margin-top:28px;background:#101010;border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:24px}
-.cart-item{display:flex;justify-content:space-between;gap:14px;color:#ddd;font-size:14px;line-height:1.5;margin-bottom:14px}
-.total{border-top:1px solid rgba(255,255,255,.08);margin-top:20px;padding-top:20px;font-size:24px;font-weight:bold}
-.pay{display:block;text-align:center;text-decoration:none;margin-top:14px;padding:14px;border-radius:999px;font-weight:bold}
-.promptpay{background:#1d3557;color:white}
-.bank{background:#151515;color:#f5f1e8;border:1px solid rgba(255,255,255,.12)}
-.whatsapp{background:#0f5f34;color:white}
-
-.contact{text-align:center}
-.contact h2{font-size:36px;margin-bottom:22px}
-.contact p{font-size:17px;color:#ccc;line-height:1.8;word-break:break-word}
-footer{text-align:center;padding:30px 20px;color:#777;font-size:13px;border-top:1px solid rgba(255,255,255,.06)}
-
-@media(min-width:768px){
-.hero h1{font-size:72px}
-.hero-buttons{display:flex;justify-content:center;gap:12px}
-.outline{margin-top:0}
-.section h2{font-size:52px}
-.card{flex:0 0 340px;max-width:340px}
-.card img{height:250px}
-.arrows{display:flex}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media(max-width:767px){
-.arrows{display:none}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050505;
+  color: #f5f1e8;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.82)),
+    url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1800&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+
+.hero-box {
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+  background: rgba(0,0,0,.46);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  padding: 46px 28px;
+}
+
+.label {
+  color: #c9a45c;
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1;
+  margin: 20px 0 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #ddd;
+  line-height: 1.55;
+  margin-bottom: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.primary {
+  background: #6e0f1a;
+  color: #f5f1e8;
+}
+
+.outline {
+  color: #f5f1e8;
+  border: 1px solid rgba(245,241,232,.34);
+}
+
+.section {
+  padding: 78px 22px;
+}
+
+.container {
+  max-width: 1180px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 38px;
+  line-height: 1.08;
+  margin: 14px 0 18px;
+}
+
+.text {
+  max-width: 760px;
+  color: #bdbdbd;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.collection-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 26px;
+}
+
+.arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.18);
+  background: #111;
+  color: #f5f1e8;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.slider {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 8px 0 22px;
+  scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 82%;
+  max-width: 82%;
+  scroll-snap-align: start;
+  background: #101010;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.info {
+  padding: 22px;
+}
+
+.type {
+  color: #c9a45c;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 26px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.desc {
+  font-size: 15px;
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.add {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  background: #6e0f1a;
+  color: #f5f1e8;
+  padding: 13px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.cart {
+  background: #090909;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.cart-box {
+  margin-top: 28px;
+  background: #101010;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.total {
+  border-top: 1px solid rgba(255,255,255,.08);
+  margin-top: 20px;
+  padding-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.pay {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.promptpay {
+  background: #1d3557;
+  color: white;
+}
+
+.bank {
+  background: #151515;
+  color: #f5f1e8;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.whatsapp {
+  background: #0f5f34;
+  color: white;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 36px;
+  margin-bottom: 22px;
+}
+
+.contact p {
+  font-size: 17px;
+  color: #ccc;
+  line-height: 1.8;
+  word-break: break-word;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: #777;
+  font-size: 13px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 72px;
+  }
+
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .section h2 {
+    font-size: 52px;
+  }
+
+  .card {
+    flex: 0 0 340px;
+    max-width: 340px;
+  }
+
+  .card img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 767px) {
+  .arrows {
+    display: none;
+  }
 }
 </style>
 </head>
@@ -88,17 +344,21 @@ footer{text-align:center;padding:30px 20px;color:#777;font-size:13px;border-top:
   <div class="container">
     <div class="label">Solaris Wine</div>
     <h2>Curated Portuguese Wines for Thailand & Laos</h2>
-    <p class="text">A refined selection of wines from Portugal, chosen for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.</p>
+    <p class="text">
+      A refined selection of wines from Portugal, chosen for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.
+    </p>
   </div>
 </section>
 
 <section class="section" id="collection">
   <div class="container">
+
     <div class="collection-head">
       <div>
         <div class="label">Our Collection</div>
         <h2>Wine Portfolio</h2>
       </div>
+
       <div class="arrows">
         <button class="arrow" onclick="slideWine(-1)">‹</button>
         <button class="arrow" onclick="slideWine(1)">›</button>
@@ -107,51 +367,140 @@ footer{text-align:center;padding:30px 20px;color:#777;font-size:13px;border-top:
 
     <div class="slider" id="wineSlider">
 
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop">
-    <div class="info">
-      <div class="type">Red Wine</div>
-      <h3>Mariana Vinho Tinto</h3>
-      <p class="desc">Elegant Portuguese red wine with smooth texture.</p>
-      <div class="price">890 THB</div>
-      <button class="add" onclick="addToCart('Mariana Vinho Tinto',890)">Add to Cart</button>
-    </div>
-  </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop" alt="Mariana Vinho Tinto">
+        <div class="info">
+          <div class="type">Red Wine</div>
+          <h3>Mariana Vinho Tinto</h3>
+          <p class="desc">Elegant Portuguese red wine with smooth texture.</p>
+          <div class="price">890 THB</div>
+          <button class="add" onclick="addToCart('Mariana Vinho Tinto', 890)">Add to Cart</button>
+        </div>
+      </article>
 
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop">
-    <div class="info">
-      <div class="type">White Wine</div>
-      <h3>Mariana Vinho Branco</h3>
-      <p class="desc">Fresh and balanced white wine for seafood.</p>
-      <div class="price">750 THB</div>
-      <button class="add" onclick="addToCart('Mariana Vinho Branco',750)">Add to Cart</button>
-    </div>
-  </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop" alt="Mariana Vinho Branco">
+        <div class="info">
+          <div class="type">White Wine</div>
+          <h3>Mariana Vinho Branco</h3>
+          <p class="desc">Fresh and balanced white wine for seafood.</p>
+          <div class="price">750 THB</div>
+          <button class="add" onclick="addToCart('Mariana Vinho Branco', 750)">Add to Cart</button>
+        </div>
+      </article>
 
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?q=80&w=1000&auto=format&fit=crop">
-    <div class="info">
-      <div class="type">Rosé Wine</div>
-      <h3>Mariana Vinho Rosé</h3>
-      <p class="desc">Light, modern and refreshing rosé.</p>
-      <div class="price">750 THB</div>
-      <button class="add" onclick="addToCart('Mariana Vinho Rosé',750)">Add to Cart</button>
-    </div>
-  </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?q=80&w=1000&auto=format&fit=crop" alt="Mariana Vinho Rose">
+        <div class="info">
+          <div class="type">Rosé Wine</div>
+          <h3>Mariana Vinho Rosé</h3>
+          <p class="desc">Light, modern and refreshing rosé.</p>
+          <div class="price">750 THB</div>
+          <button class="add" onclick="addToCart('Mariana Vinho Rosé', 750)">Add to Cart</button>
+        </div>
+      </article>
 
-  <article class="card">
-    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop">
-    <div class="info">
-      <div class="type">Vinho Verde</div>
-      <h3>Goivo Vinho Verde</h3>
-      <p class="desc">Bright, crisp and refreshing Portuguese wine.</p>
-      <div class="price">690 THB</div>
-      <button class="add" onclick="addToCart('Goivo Vinho Verde',690)">Add to Cart</button>
-    </div>
-  </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop" alt="Rocim Vindima Vinho Tinto">
+        <div class="info">
+          <div class="type">Red Wine</div>
+          <h3>Rocim Vindima Vinho Tinto</h3>
+          <p class="desc">Modern Portuguese red with elegant structure.</p>
+          <div class="price">1,390 THB</div>
+          <button class="add" onclick="addToCart('Rocim Vindima Vinho Tinto', 1390)">Add to Cart</button>
+        </div>
+      </article>
 
-</div>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1000&auto=format&fit=crop" alt="Rocim Vinho Branco">
+        <div class="info">
+          <div class="type">White Wine</div>
+          <h3>Rocim Vinho Branco</h3>
+          <p class="desc">Clean, refined and elegant Portuguese white wine.</p>
+          <div class="price">1,290 THB</div>
+          <button class="add" onclick="addToCart('Rocim Vinho Branco', 1290)">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?q=80&w=1000&auto=format&fit=crop" alt="Rocim Vinho Tinto Reserva">
+        <div class="info">
+          <div class="type">Reserve Red</div>
+          <h3>Rocim Vinho Tinto Reserva</h3>
+          <p class="desc">Premium reserve wine with depth and balance.</p>
+          <div class="price">1,890 THB</div>
+          <button class="add" onclick="addToCart('Rocim Vinho Tinto Reserva', 1890)">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?q=80&w=1000&auto=format&fit=crop" alt="Vale de Mata Vinho Tinto">
+        <div class="info">
+          <div class="type">Red Wine</div>
+          <h3>Vale de Mata Vinho Tinto</h3>
+          <p class="desc">Refined red wine with Portuguese character.</p>
+          <div class="price">1,490 THB</div>
+          <button class="add" onclick="addToCart('Vale de Mata Vinho Tinto', 1490)">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop" alt="Vale de Mata Vinho Branco">
+        <div class="info">
+          <div class="type">White Wine</div>
+          <h3>Vale de Mata Vinho Branco</h3>
+          <p class="desc">Fresh and modern white wine from Portugal.</p>
+          <div class="price">1,390 THB</div>
+          <button class="add" onclick="addToCart('Vale de Mata Vinho Branco', 1390)">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop" alt="Raio de Luz Vinho Tinto">
+        <div class="info">
+          <div class="type">Red Wine</div>
+          <h3>Raio de Luz Vinho Tinto</h3>
+          <p class="desc">Modern Douro red with vibrant personality.</p>
+          <div class="price">1,090 THB</div>
+          <button class="add" onclick="addToCart('Raio de Luz Vinho Tinto', 1090)">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop" alt="Raio de Luz Vinho Branco">
+        <div class="info">
+          <div class="type">White Wine</div>
+          <h3>Raio de Luz Vinho Branco</h3>
+          <p class="desc">Fresh Portuguese white with elegant balance.</p>
+          <div class="price">990 THB</div>
+          <button class="add" onclick="addToCart('Raio de Luz Vinho Branco', 990)">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop" alt="Goivo Vinho Verde">
+        <div class="info">
+          <div class="type">Vinho Verde</div>
+          <h3>Goivo Vinho Verde</h3>
+          <p class="desc">Bright, crisp and refreshing Portuguese wine.</p>
+          <div class="price">690 THB</div>
+          <button class="add" onclick="addToCart('Goivo Vinho Verde', 690)">Add to Cart</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1000&auto=format&fit=crop" alt="Alicante Bouschet Vinho Tinto">
+        <div class="info">
+          <div class="type">Red Wine</div>
+          <h3>Alicante Bouschet Vinho Tinto</h3>
+          <p class="desc">Deep, bold and expressive premium red wine.</p>
+          <div class="price">2,490 THB</div>
+          <button class="add" onclick="addToCart('Alicante Bouschet Vinho Tinto', 2490)">Add to Cart</button>
+        </div>
+      </article>
+
+    </div>
+
   </div>
 </section>
 
@@ -159,9 +508,11 @@ footer{text-align:center;padding:30px 20px;color:#777;font-size:13px;border-top:
   <div class="container">
     <div class="label">Shopping Cart</div>
     <h2>Your Order</h2>
+
     <div class="cart-box">
       <div id="cartItems">No items yet.</div>
       <div class="total">Total: <span id="total">0</span> THB</div>
+
       <a href="#" class="pay promptpay">Pay with PromptPay</a>
       <a href="#" class="pay bank">Bank Transfer</a>
       <a id="whatsappOrder" href="https://wa.me/66961644422" class="pay whatsapp">Send Order via WhatsApp</a>
@@ -178,46 +529,60 @@ footer{text-align:center;padding:30px 20px;color:#777;font-size:13px;border-top:
   </div>
 </section>
 
-<footer>© 2026 Solaris Wine. Premium Portuguese Wines.</footer>
+<footer>
+  © 2026 Solaris Wine. Premium Portuguese Wines.
+</footer>
 
 <script>
-
 let cart = [];
 let total = 0;
 
-const slider = document.getElementById("wineSlider");
-
-function slideWine(direction){
-  slider.scrollBy({ left: direction * 370, behavior: "smooth" });
+function slideWine(direction) {
+  const slider = document.getElementById("wineSlider");
+  slider.scrollBy({
+    left: direction * 360,
+    behavior: "smooth"
+  });
 }
 
-function addToCart(name, price){
-  cart.push({name, price});
+function addToCart(name, price) {
+  cart.push({ name, price });
   total += price;
   renderCart();
 }
 
-function renderCart(){
+function renderCart() {
   const box = document.getElementById("cartItems");
-  if(cart.length === 0){
+  const totalBox = document.getElementById("total");
+  const whatsapp = document.getElementById("whatsappOrder");
+
+  if (cart.length === 0) {
     box.innerHTML = "No items yet.";
+    totalBox.innerText = "0";
+    whatsapp.href = "https://wa.me/66961644422";
     return;
   }
 
   box.innerHTML = "";
+
   cart.forEach(item => {
-    box.innerHTML += `<div class="cart-item"><span>${item.name}</span><span>${item.price.toLocaleString()} THB</span></div>`;
+    box.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name}</span>
+        <span>${item.price.toLocaleString()} THB</span>
+      </div>
+    `;
   });
 
-  document.getElementById("total").innerText = total.toLocaleString();
+  totalBox.innerText = total.toLocaleString();
 
   const message = encodeURIComponent(
     "Solaris Wine Order\n\n" +
-    cart.map(i => `${i.name} - ${i.price.toLocaleString()} THB`).join("\n") +
-    \n\nTotal: ${total.toLocaleString()} THB
+    cart.map(item => `${item.name} - ${item.price.toLocaleString()} THB`).join("\n") +
+    `\n\nTotal: ${total.toLocaleString()} THB`
   );
 
-  document.getElementById("whatsappOrder").href = `https://wa.me/66961644422?text=${message}`;
+  whatsapp.href = `https://wa.me/66961644422?text=${message}`;
 }
 </script>
 
