@@ -1,4 +1,6 @@
-/* RESET */
+/* =========================
+   SOLARIS WINE PREMIUM CSS
+========================= */
 
 *{
   margin:0;
@@ -11,382 +13,464 @@ html{
 }
 
 body{
-  font-family:'Montserrat',sans-serif;
-  background:#050505;
-  color:white;
+  background:#000;
+  color:#f5f1e8;
+  font-family:Inter,sans-serif;
   overflow-x:hidden;
 }
 
-/* CONTAINER */
+/* =========================
+   GLOBAL
+========================= */
 
 .container{
   width:100%;
   max-width:1400px;
   margin:auto;
-  padding:0 20px;
+  padding:0 24px;
 }
 
-/* HERO */
+.section{
+  padding:120px 0;
+}
+
+.label{
+  color:#c9a45c;
+  letter-spacing:7px;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:24px;
+  text-transform:uppercase;
+}
+
+.section h2{
+  font-size:clamp(42px,9vw,72px);
+  line-height:.92;
+  letter-spacing:-2px;
+  margin-bottom:28px;
+  max-width:900px;
+  font-weight:800;
+}
+
+.text{
+  max-width:720px;
+  color:#969696;
+  font-size:18px;
+  line-height:1.8;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  position:relative;
   min-height:100vh;
-  background:
-  linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.78)),
-  url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1400&auto=format&fit=crop');
-  background-size:cover;
-  background-position:center;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:24px;
+  position:relative;
+  overflow:hidden;
+  padding:40px 0;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(to bottom,
+  rgba(0,0,0,.45),
+  rgba(0,0,0,.88)),
+  url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1400&auto=format&fit=crop");
+  background-size:cover;
+  background-position:center;
+  filter:blur(1px);
+  transform:scale(1.05);
 }
 
 .hero-box{
+  position:relative;
+  z-index:2;
   width:100%;
-  max-width:480px;
-  background:rgba(0,0,0,0.55);
+  max-width:780px;
+  background:rgba(0,0,0,.58);
   backdrop-filter:blur(12px);
-  border-radius:30px;
-  padding:34px 24px;
-  border:1px solid rgba(255,255,255,0.08);
-}
-
-.hero-label{
-  color:#d4af37;
-  letter-spacing:4px;
-  font-size:12px;
-  font-weight:700;
-  margin-bottom:18px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:38px;
+  padding:60px 48px;
   text-align:center;
+  box-shadow:
+  0 0 60px rgba(0,0,0,.5),
+  inset 0 0 0 1px rgba(255,255,255,.02);
 }
 
 .hero h1{
-  font-size:58px;
-  line-height:0.95;
+  font-size:clamp(52px,10vw,96px);
+  line-height:.92;
+  letter-spacing:-3px;
+  margin:18px 0;
   font-weight:800;
-  text-align:center;
-  margin-bottom:22px;
 }
 
 .hero p{
+  color:#d2d2d2;
   font-size:22px;
-  line-height:1.5;
-  color:#e0e0e0;
-  text-align:center;
-  margin-bottom:28px;
+  line-height:1.7;
+  max-width:620px;
+  margin:auto;
 }
 
-.hero-buttons{
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
   display:flex;
-  flex-direction:column;
-  gap:14px;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:42px;
 }
 
 .btn{
-  display:block;
-  width:100%;
-  text-align:center;
-  text-decoration:none;
-  padding:18px;
+  padding:18px 34px;
   border-radius:999px;
+  font-size:15px;
   font-weight:700;
-  font-size:18px;
+  text-decoration:none;
+  transition:.3s ease;
+  cursor:pointer;
 }
 
 .btn-primary{
-  background:#8b0000;
-  color:#ffd84d;
+  background:#6d1020;
+  color:#fff;
+}
+
+.btn-primary:hover{
+  background:#8d1830;
+  transform:translateY(-2px);
 }
 
 .btn-secondary{
-  border:1px solid rgba(255,255,255,0.2);
-  color:white;
+  border:1px solid rgba(255,255,255,.12);
+  color:#f5f1e8;
+  background:rgba(255,255,255,.03);
 }
 
-/* SECTION */
-
-.section{
-  padding:70px 0;
+.btn-secondary:hover{
+  background:rgba(255,255,255,.06);
 }
 
-.section-label{
-  color:#d4af37;
-  letter-spacing:4px;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:18px;
+/* =========================
+   SLIDER
+========================= */
+
+.slider-wrap{
+  position:relative;
+  margin-top:50px;
 }
 
-.section-title{
-  font-size:52px;
-  line-height:0.95;
-  font-weight:800;
-  margin-bottom:24px;
-}
-
-.section-text{
-  color:#cfcfcf;
-  font-size:20px;
-  line-height:1.7;
-  max-width:900px;
-}
-
-/* SLIDER */
-
-.wine-slider{
+.slider{
   display:flex;
-  gap:18px;
+  gap:24px;
   overflow-x:auto;
-  padding-bottom:10px;
-  margin-top:42px;
   scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
+  scroll-behavior:smooth;
+  padding-bottom:20px;
   scrollbar-width:none;
+  cursor:grab;
 }
 
-.wine-slider::-webkit-scrollbar{
+.slider::-webkit-scrollbar{
   display:none;
 }
 
-.wine-card{
-  flex:0 0 82%;
-  background:#111;
+.slider:active{
+  cursor:grabbing;
+}
+
+.arrow{
+  position:absolute;
+  top:45%;
+  transform:translateY(-50%);
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.06);
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+  z-index:10;
+  transition:.25s;
+  backdrop-filter:blur(8px);
+}
+
+.arrow:hover{
+  background:#6d1020;
+}
+
+.arrow-left{
+  left:-10px;
+}
+
+.arrow-right{
+  right:-10px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+  flex:0 0 300px;
+  max-width:300px;
+  scroll-snap-align:start;
+  background:#0d0d0d;
+  border:1px solid rgba(255,255,255,.06);
   border-radius:28px;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,0.06);
-  scroll-snap-align:start;
+  transition:.3s ease;
 }
 
-.wine-card img{
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(201,164,92,.35);
+}
+
+.card img{
   width:100%;
-  height:240px;
+  height:360px;
   object-fit:cover;
+  display:block;
 }
 
-.wine-content{
-  padding:24px;
+.info{
+  padding:26px;
 }
 
-.wine-type{
-  color:#d4af37;
-  letter-spacing:4px;
-  font-size:12px;
+.type{
+  color:#c9a45c;
+  font-size:13px;
+  letter-spacing:5px;
+  margin-bottom:16px;
   font-weight:700;
-  margin-bottom:14px;
 }
 
-.wine-card h3{
-  font-size:38px;
-  line-height:1.02;
+.card h3{
+  font-size:34px;
+  line-height:.98;
+  margin-bottom:16px;
+  letter-spacing:-1.5px;
+}
+
+.desc{
+  font-size:15px;
+  color:#8f8f8f;
+  line-height:1.7;
+  margin-bottom:18px;
+}
+
+.price{
+  font-size:30px;
   font-weight:800;
   margin-bottom:18px;
 }
 
-.wine-card p{
-  color:#bdbdbd;
-  font-size:18px;
-  line-height:1.7;
-  margin-bottom:24px;
-}
-
-.price{
-  font-size:34px;
-  font-weight:800;
-  margin-bottom:20px;
-}
-
-.cart-btn{
+.add{
   width:100%;
   border:none;
-  background:#8b0000;
-  color:#ffd84d;
-  padding:16px;
   border-radius:999px;
-  font-size:18px;
+  background:#6d1020;
+  color:#f5f1e8;
+  padding:14px;
   font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  transition:.25s ease;
 }
 
-/* SWIPE */
-
-.swipe{
-  text-align:center;
-  color:#777;
-  margin-top:18px;
-  font-size:16px;
+.add:hover{
+  background:#8d1830;
 }
 
-/* CART */
+/* =========================
+   CART
+========================= */
 
 .cart-box{
-  background:#111;
-  border-radius:28px;
-  padding:24px;
-  margin-top:36px;
+  margin-top:50px;
+  background:#090909;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:36px;
+  padding:40px;
 }
 
 .cart-item{
   display:flex;
   justify-content:space-between;
-  gap:18px;
-  margin-bottom:18px;
-  font-size:16px;
-  line-height:1.5;
-  color:#ddd;
+  gap:20px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  color:#d7d7d7;
 }
 
 .total{
-  margin-top:24px;
-  padding-top:24px;
-  border-top:1px solid rgba(255,255,255,0.08);
-  font-size:32px;
+  font-size:52px;
   font-weight:800;
+  margin:34px 0;
+  line-height:1;
 }
 
 .payment-buttons{
   display:flex;
-  flex-direction:column;
-  gap:16px;
-  margin-top:28px;
+  flex-wrap:wrap;
+  gap:18px;
 }
 
 .pay-btn{
-  display:block;
-  text-align:center;
-  text-decoration:none;
+  flex:1;
+  min-width:220px;
   padding:18px;
   border-radius:999px;
-  font-size:18px;
+  border:none;
+  font-size:16px;
   font-weight:700;
+  cursor:pointer;
+  transition:.3s;
 }
 
 .promptpay{
-  background:#0057ff;
-  color:white;
+  background:#151515;
+  color:#f5f1e8;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.promptpay:hover{
+  background:#202020;
 }
 
 .bank{
-  background:#1d1d1d;
-  color:white;
-  border:1px solid rgba(255,255,255,0.1);
+  background:transparent;
+  color:#f5f1e8;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.bank:hover{
+  background:#111;
 }
 
 .whatsapp{
-  background:#0f8b3d;
+  background:#6d1020;
   color:white;
 }
 
-/* CONTACT */
+.whatsapp:hover{
+  background:#8d1830;
+}
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact{
   text-align:center;
 }
 
-.contact h2{
-  font-size:52px;
-  margin-bottom:30px;
-  line-height:1;
+.contact-list{
+  margin-top:40px;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
 }
 
-.contact p{
-  font-size:22px;
-  line-height:1.8;
-  color:#ddd;
-  word-break:break-word;
+.contact-list a{
+  color:#d7d7d7;
+  text-decoration:none;
+  font-size:24px;
+  transition:.25s;
 }
 
-/* FOOTER */
-
-footer{
-  padding:30px 20px;
-  text-align:center;
-  color:#777;
-  font-size:14px;
-  border-top:1px solid rgba(255,255,255,0.06);
+.contact-list a:hover{
+  color:#c9a45c;
 }
 
-/* DESKTOP */
-
-@media(min-width:768px){
-
-.hero h1{
-  font-size:88px;
-}
-
-.hero-buttons{
-  flex-direction:row;
-}
-
-.section-title{
-  font-size:78px;
-}
-
-.wine-card{
-  flex:0 0 380px;
-}
-
-.wine-card img{
-  height:300px;
-}
-
-.wine-card h3{
-  font-size:42px;
-}
-
-.contact h2{
-  font-size:80px;
-}
-
-}
-
-/* MOBILE FIX */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:768px){
 
-.hero h1{
-  font-size:64px !important;
-  line-height:0.95 !important;
-}
+  .section{
+    padding:90px 0;
+  }
 
-.hero p{
-  font-size:18px !important;
-  line-height:1.5 !important;
-}
+  .hero-box{
+    padding:40px 22px;
+    border-radius:28px;
+  }
 
-.section-title{
-  font-size:54px !important;
-  line-height:0.95 !important;
-}
+  .hero h1{
+    font-size:68px;
+  }
 
-.wine-card{
-  flex:0 0 88% !important;
-}
+  .hero p{
+    font-size:16px;
+    line-height:1.7;
+  }
 
-.wine-card h3{
-  font-size:42px !important;
-  line-height:1 !important;
-}
+  .section h2{
+    font-size:58px;
+  }
 
-.wine-card p{
-  font-size:16px !important;
-  line-height:1.6 !important;
-}
+  .text{
+    font-size:16px;
+  }
 
-.price{
-  font-size:28px !important;
-}
+  .buttons{
+    flex-direction:column;
+  }
 
-.contact h2{
-  font-size:56px !important;
-}
+  .btn{
+    width:100%;
+  }
 
-.contact p{
-  font-size:18px !important;
-  line-height:1.7 !important;
-}
+  .card{
+    flex:0 0 84%;
+    max-width:84%;
+  }
 
-.total{
-  font-size:30px !important;
-}
+  .card img{
+    height:300px;
+  }
 
+  .card h3{
+    font-size:28px;
+  }
+
+  .price{
+    font-size:26px;
+  }
+
+  .total{
+    font-size:42px;
+  }
+
+  .payment-buttons{
+    flex-direction:column;
+  }
+
+  .pay-btn{
+    width:100%;
+  }
+
+  .arrow{
+    display:none;
+  }
+
+  .contact-list a{
+    font-size:18px;
+    word-break:break-word;
+  }
 }
