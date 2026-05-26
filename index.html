@@ -1,351 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Solaris Wine | Premium Portuguese Wines</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <title>Solaris Wine | Premium Portuguese Wines</title>
 
-html {
-  scroll-behavior: smooth;
-}
+  <link rel="stylesheet" href="style.css" />
 
-body {
-  background: #050505;
-  color: #f5f1e8;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-}
-
-.hero {
-  min-height: 100vh;
-  background:
-    linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.82)),
-    url("https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1800&auto=format&fit=crop");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 28px;
-}
-
-.hero-box {
-  width: 100%;
-  max-width: 560px;
-  text-align: center;
-  background: rgba(0,0,0,.46);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 28px;
-  padding: 46px 28px;
-}
-
-.label {
-  color: #c9a45c;
-  letter-spacing: 4px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.hero h1 {
-  font-size: 56px;
-  line-height: 1;
-  margin: 20px 0 16px;
-}
-
-.hero p {
-  font-size: 18px;
-  color: #ddd;
-  line-height: 1.55;
-  margin-bottom: 28px;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  padding: 14px 24px;
-  border-radius: 999px;
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.primary {
-  background: #6e0f1a;
-  color: #f5f1e8;
-}
-
-.outline {
-  color: #f5f1e8;
-  border: 1px solid rgba(245,241,232,.34);
-}
-
-.section {
-  padding: 78px 22px;
-}
-
-.container {
-  max-width: 1180px;
-  margin: auto;
-}
-
-.section h2 {
-  font-size: 38px;
-  line-height: 1.08;
-  margin: 14px 0 18px;
-}
-
-.text {
-  max-width: 760px;
-  color: #bdbdbd;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.collection-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 20px;
-  margin-bottom: 26px;
-}
-
-.arrows {
-  display: flex;
-  gap: 10px;
-}
-
-.arrow {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,.18);
-  background: #111;
-  color: #f5f1e8;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.slider {
-  display: flex;
-  gap: 22px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 8px 0 22px;
-  scrollbar-width: none;
-}
-
-.slider::-webkit-scrollbar {
-  display: none;
-}
-
-.card {
-  flex: 0 0 82%;
-  max-width: 82%;
-  scroll-snap-align: start;
-  background: #101010;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 24px;
-  overflow: hidden;
-}
-
-.card img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  display: block;
-}
-
-.info {
-  padding: 22px;
-}
-
-.type {
-  color: #c9a45c;
-  font-size: 11px;
-  letter-spacing: 3px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.card h3 {
-  font-size: 26px;
-  line-height: 1.15;
-  margin-bottom: 12px;
-}
-
-.desc {
-  font-size: 15px;
-  color: #aaa;
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.price {
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-.add {
-  width: 100%;
-  border: none;
-  border-radius: 999px;
-  background: #6e0f1a;
-  color: #f5f1e8;
-  padding: 13px;
-  font-weight: bold;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.cart {
-  background: #090909;
-  border-top: 1px solid rgba(255,255,255,.08);
-}
-
-.cart-box {
-  margin-top: 28px;
-  background: #101010;
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 24px;
-  padding: 24px;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  color: #ddd;
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 14px;
-}
-
-.total {
-  border-top: 1px solid rgba(255,255,255,.08);
-  margin-top: 20px;
-  padding-top: 20px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.pay {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin-top: 14px;
-  padding: 14px;
-  border-radius: 999px;
-  font-weight: bold;
-}
-
-.promptpay {
-  background: #1d3557;
-  color: white;
-}
-
-.bank {
-  background: #151515;
-  color: #f5f1e8;
-  border: 1px solid rgba(255,255,255,.12);
-}
-
-.whatsapp {
-  background: #0f5f34;
-  color: white;
-}
-
-.contact {
-  text-align: center;
-}
-
-.contact h2 {
-  font-size: 36px;
-  margin-bottom: 22px;
-}
-
-.contact p {
-  font-size: 17px;
-  color: #ccc;
-  line-height: 1.8;
-  word-break: break-word;
-}
-
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  color: #777;
-  font-size: 13px;
-  border-top: 1px solid rgba(255,255,255,.06);
-}
-
-@media (min-width: 768px) {
-  .hero h1 {
-    font-size: 72px;
-  }
-
-  .hero-buttons {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .section h2 {
-    font-size: 52px;
-  }
-
-  .card {
-    flex: 0 0 340px;
-    max-width: 340px;
-  }
-
-  .card img {
-    height: 250px;
-  }
-}
-
-@media (max-width: 767px) {
-  .arrows {
-    display: none;
-  }
-}
-</style>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 
 <body>
 
-<section class="hero">
+<header class="hero">
   <div class="hero-box">
     <div class="label">Imported from Portugal</div>
     <h1>Solaris Wine</h1>
     <p>Premium Portuguese wines curated for dining, hotels, wine bars and private gatherings.</p>
-    <div class="hero-buttons">
-      <a href="#collection" class="btn primary">View Collection</a>
-      <a href="https://wa.me/66961644422" class="btn outline">Order via WhatsApp</a>
+
+    <div class="hero-actions">
+      <a href="#collection" class="btn btn-main">View Collection</a>
+      <a href="https://wa.me/66961644422" target="_blank" class="btn btn-ghost">Order via WhatsApp</a>
     </div>
   </div>
-</section>
+</header>
 
-<section class="section">
+<section class="section intro">
   <div class="container">
     <div class="label">Solaris Wine</div>
     <h2>Curated Portuguese Wines for Thailand & Laos</h2>
-    <p class="text">
-      A refined selection of wines from Portugal, chosen for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.
+    <p>
+      A refined selection of Portuguese wines for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.
     </p>
   </div>
 </section>
@@ -353,154 +40,153 @@ footer {
 <section class="section" id="collection">
   <div class="container">
 
-    <div class="collection-head">
+    <div class="section-head">
       <div>
         <div class="label">Our Collection</div>
         <h2>Wine Portfolio</h2>
       </div>
 
       <div class="arrows">
-        <button class="arrow" onclick="slideWine(-1)">‹</button>
-        <button class="arrow" onclick="slideWine(1)">›</button>
+        <button onclick="slideWine(-1)">‹</button>
+        <button onclick="slideWine(1)">›</button>
       </div>
     </div>
 
     <div class="slider" id="wineSlider">
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop" alt="Mariana Vinho Tinto">
+        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">Red Wine</div>
+          <span>Red Wine</span>
           <h3>Mariana Vinho Tinto</h3>
-          <p class="desc">Elegant Portuguese red wine with smooth texture.</p>
-          <div class="price">890 THB</div>
-          <button class="add" onclick="addToCart('Mariana Vinho Tinto', 890)">Add to Cart</button>
+          <p>Elegant Portuguese red wine with smooth texture.</p>
+          <strong>890 THB</strong>
+          <button onclick="addToCart('Mariana Vinho Tinto', 890)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop" alt="Mariana Vinho Branco">
+        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">White Wine</div>
+          <span>White Wine</span>
           <h3>Mariana Vinho Branco</h3>
-          <p class="desc">Fresh and balanced white wine for seafood.</p>
-          <div class="price">750 THB</div>
-          <button class="add" onclick="addToCart('Mariana Vinho Branco', 750)">Add to Cart</button>
+          <p>Fresh and balanced white wine for seafood.</p>
+          <strong>750 THB</strong>
+          <button onclick="addToCart('Mariana Vinho Branco', 750)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?q=80&w=1000&auto=format&fit=crop" alt="Mariana Vinho Rose">
+        <img src="https://images.unsplash.com/photo-1474722883778-792e7990302f?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">Rosé Wine</div>
+          <span>Rosé Wine</span>
           <h3>Mariana Vinho Rosé</h3>
-          <p class="desc">Light, modern and refreshing rosé.</p>
-          <div class="price">750 THB</div>
-          <button class="add" onclick="addToCart('Mariana Vinho Rosé', 750)">Add to Cart</button>
+          <p>Light, modern and refreshing rosé.</p>
+          <strong>750 THB</strong>
+          <button onclick="addToCart('Mariana Vinho Rosé', 750)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop" alt="Rocim Vindima Vinho Tinto">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">Red Wine</div>
+          <span>Red Wine</span>
           <h3>Rocim Vindima Vinho Tinto</h3>
-          <p class="desc">Modern Portuguese red with elegant structure.</p>
-          <div class="price">1,390 THB</div>
-          <button class="add" onclick="addToCart('Rocim Vindima Vinho Tinto', 1390)">Add to Cart</button>
+          <p>Modern Portuguese red with elegant structure.</p>
+          <strong>1,390 THB</strong>
+          <button onclick="addToCart('Rocim Vindima Vinho Tinto', 1390)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1000&auto=format&fit=crop" alt="Rocim Vinho Branco">
+        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">White Wine</div>
+          <span>White Wine</span>
           <h3>Rocim Vinho Branco</h3>
-          <p class="desc">Clean, refined and elegant Portuguese white wine.</p>
-          <div class="price">1,290 THB</div>
-          <button class="add" onclick="addToCart('Rocim Vinho Branco', 1290)">Add to Cart</button>
+          <p>Clean, refined and elegant Portuguese white wine.</p>
+          <strong>1,290 THB</strong>
+          <button onclick="addToCart('Rocim Vinho Branco', 1290)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?q=80&w=1000&auto=format&fit=crop" alt="Rocim Vinho Tinto Reserva">
+        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">Reserve Red</div>
+          <span>Reserve Red</span>
           <h3>Rocim Vinho Tinto Reserva</h3>
-          <p class="desc">Premium reserve wine with depth and balance.</p>
-          <div class="price">1,890 THB</div>
-          <button class="add" onclick="addToCart('Rocim Vinho Tinto Reserva', 1890)">Add to Cart</button>
+          <p>Premium reserve wine with depth and balance.</p>
+          <strong>1,890 THB</strong>
+          <button onclick="addToCart('Rocim Vinho Tinto Reserva', 1890)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?q=80&w=1000&auto=format&fit=crop" alt="Vale de Mata Vinho Tinto">
+        <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">Red Wine</div>
+          <span>Red Wine</span>
           <h3>Vale de Mata Vinho Tinto</h3>
-          <p class="desc">Refined red wine with Portuguese character.</p>
-          <div class="price">1,490 THB</div>
-          <button class="add" onclick="addToCart('Vale de Mata Vinho Tinto', 1490)">Add to Cart</button>
+          <p>Refined red wine with Portuguese character.</p>
+          <strong>1,490 THB</strong>
+          <button onclick="addToCart('Vale de Mata Vinho Tinto', 1490)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop" alt="Vale de Mata Vinho Branco">
+        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">White Wine</div>
+          <span>White Wine</span>
           <h3>Vale de Mata Vinho Branco</h3>
-          <p class="desc">Fresh and modern white wine from Portugal.</p>
-          <div class="price">1,390 THB</div>
-          <button class="add" onclick="addToCart('Vale de Mata Vinho Branco', 1390)">Add to Cart</button>
+          <p>Fresh and modern white wine from Portugal.</p>
+          <strong>1,390 THB</strong>
+          <button onclick="addToCart('Vale de Mata Vinho Branco', 1390)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop" alt="Raio de Luz Vinho Tinto">
+        <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">Red Wine</div>
+          <span>Red Wine</span>
           <h3>Raio de Luz Vinho Tinto</h3>
-          <p class="desc">Modern Douro red with vibrant personality.</p>
-          <div class="price">1,090 THB</div>
-          <button class="add" onclick="addToCart('Raio de Luz Vinho Tinto', 1090)">Add to Cart</button>
+          <p>Modern Douro red with vibrant personality.</p>
+          <strong>1,090 THB</strong>
+          <button onclick="addToCart('Raio de Luz Vinho Tinto', 1090)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop" alt="Raio de Luz Vinho Branco">
+        <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">White Wine</div>
+          <span>White Wine</span>
           <h3>Raio de Luz Vinho Branco</h3>
-          <p class="desc">Fresh Portuguese white with elegant balance.</p>
-          <div class="price">990 THB</div>
-          <button class="add" onclick="addToCart('Raio de Luz Vinho Branco', 990)">Add to Cart</button>
+          <p>Fresh Portuguese white with elegant balance.</p>
+          <strong>990 THB</strong>
+          <button onclick="addToCart('Raio de Luz Vinho Branco', 990)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop" alt="Goivo Vinho Verde">
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">Vinho Verde</div>
+          <span>Vinho Verde</span>
           <h3>Goivo Vinho Verde</h3>
-          <p class="desc">Bright, crisp and refreshing Portuguese wine.</p>
-          <div class="price">690 THB</div>
-          <button class="add" onclick="addToCart('Goivo Vinho Verde', 690)">Add to Cart</button>
+          <p>Bright, crisp and refreshing Portuguese wine.</p>
+          <strong>690 THB</strong>
+          <button onclick="addToCart('Goivo Vinho Verde', 690)">Add to Cart</button>
         </div>
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1000&auto=format&fit=crop" alt="Alicante Bouschet Vinho Tinto">
+        <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=1000&auto=format&fit=crop">
         <div class="info">
-          <div class="type">Red Wine</div>
+          <span>Red Wine</span>
           <h3>Alicante Bouschet Vinho Tinto</h3>
-          <p class="desc">Deep, bold and expressive premium red wine.</p>
-          <div class="price">2,490 THB</div>
-          <button class="add" onclick="addToCart('Alicante Bouschet Vinho Tinto', 2490)">Add to Cart</button>
+          <p>Deep, bold and expressive premium red wine.</p>
+          <strong>2,490 THB</strong>
+          <button onclick="addToCart('Alicante Bouschet Vinho Tinto', 2490)">Add to Cart</button>
         </div>
       </article>
 
     </div>
-
   </div>
 </section>
 
@@ -511,21 +197,58 @@ footer {
 
     <div class="cart-box">
       <div id="cartItems">No items yet.</div>
-      <div class="total">Total: <span id="total">0</span> THB</div>
 
-      <a href="#" class="pay promptpay">Pay with PromptPay</a>
-      <a href="#" class="pay bank">Bank Transfer</a>
-      <a id="whatsappOrder" href="https://wa.me/66961644422" class="pay whatsapp">Send Order via WhatsApp</a>
+      <div class="total">
+        Total: <span id="total">0</span> THB
+      </div>
+
+      <div class="payment-note">
+        <p><b>Payment:</b> PromptPay QR or bank transfer will be confirmed after order.</p>
+      </div>
+
+      <a id="whatsappOrder" href="https://wa.me/66961644422" target="_blank" class="pay whatsapp-pay">
+        Send Order via WhatsApp
+      </a>
     </div>
   </div>
 </section>
 
 <section class="section contact">
   <div class="container">
-    <h2>Contact Us</h2>
-    <p>WhatsApp: +66 961644422</p>
-    <p>Line: @solariswine</p>
-    <p>Email: solarisintertrade@gmail.com</p>
+    <div class="label">Contact Solaris Wine</div>
+    <h2>Let’s Talk Wine</h2>
+    <p class="contact-subtitle">
+      For retail orders, restaurant supply, wine bars, hotels and private events.
+    </p>
+
+    <div class="contact-links">
+
+      <a href="https://wa.me/66961644422" target="_blank" class="contact-btn">
+        <i class="fab fa-whatsapp"></i>
+        WhatsApp
+      </a>
+
+      <a href="https://line.me/R/ti/p/@solariswine" target="_blank" class="contact-btn">
+        <i class="fa-brands fa-line"></i>
+        LINE
+      </a>
+
+      <a href="mailto:solarisintertrade@gmail.com" class="contact-btn">
+        <i class="fa-solid fa-envelope"></i>
+        Email
+      </a>
+
+      <a href="https://instagram.com/" target="_blank" class="contact-btn">
+        <i class="fa-brands fa-instagram"></i>
+        Instagram
+      </a>
+
+      <a href="https://facebook.com/" target="_blank" class="contact-btn">
+        <i class="fa-brands fa-facebook-f"></i>
+        Facebook
+      </a>
+
+    </div>
   </div>
 </section>
 
@@ -535,41 +258,81 @@ footer {
 
 <script>
 let cart = [];
-let total = 0;
 
 function slideWine(direction) {
-  const slider = document.getElementById("wineSlider");
-  slider.scrollBy({
-    left: direction * 360,
+  document.getElementById("wineSlider").scrollBy({
+    left: direction * 330,
     behavior: "smooth"
   });
 }
 
 function addToCart(name, price) {
-  cart.push({ name, price });
-  total += price;
+  const existing = cart.find(item => item.name === name);
+
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ name, price, qty: 1 });
+  }
+
+  renderCart();
+}
+
+function increaseQty(name) {
+  const item = cart.find(item => item.name === name);
+  if (item) item.qty++;
+  renderCart();
+}
+
+function decreaseQty(name) {
+  const item = cart.find(item => item.name === name);
+
+  if (!item) return;
+
+  item.qty--;
+
+  if (item.qty <= 0) {
+    cart = cart.filter(product => product.name !== name);
+  }
+
   renderCart();
 }
 
 function renderCart() {
-  const box = document.getElementById("cartItems");
+  const cartItems = document.getElementById("cartItems");
   const totalBox = document.getElementById("total");
   const whatsapp = document.getElementById("whatsappOrder");
 
   if (cart.length === 0) {
-    box.innerHTML = "No items yet.";
+    cartItems.innerHTML = "No items yet.";
     totalBox.innerText = "0";
     whatsapp.href = "https://wa.me/66961644422";
     return;
   }
 
-  box.innerHTML = "";
+  let total = 0;
+  cartItems.innerHTML = "";
 
   cart.forEach(item => {
-    box.innerHTML += `
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+
+    cartItems.innerHTML += `
       <div class="cart-item">
-        <span>${item.name}</span>
-        <span>${item.price.toLocaleString()} THB</span>
+        <div>
+          <strong>${item.name}</strong>
+          <small>${item.price.toLocaleString()} THB / bottle</small>
+        </div>
+
+        <div class="qty-control">
+          <button onclick="decreaseQty('${item.name}')">−</button>
+          <span>${item.qty}</span>
+          <button onclick="increaseQty('${item.name}')">+</button>
+        </div>
+
+        <div class="subtotal">
+          ${subtotal.toLocaleString()} THB
+        </div>
       </div>
     `;
   });
@@ -578,7 +341,9 @@ function renderCart() {
 
   const message = encodeURIComponent(
     "Solaris Wine Order\n\n" +
-    cart.map(item => `${item.name} - ${item.price.toLocaleString()} THB`).join("\n") +
+    cart.map(item =>
+      `${item.name} x ${item.qty} = ${(item.price * item.qty).toLocaleString()} THB`
+    ).join("\n") +
     `\n\nTotal: ${total.toLocaleString()} THB`
   );
 
