@@ -6,10 +6,7 @@
   <title>Solaris Wine | Premium Portuguese Wines</title>
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 
 <body>
@@ -18,9 +15,7 @@
   <div class="hero-panel">
     <p class="eyebrow">Imported from Portugal</p>
     <h1>Solaris Wine</h1>
-    <p class="hero-text">
-      Premium Portuguese wines selected for restaurants, hotels, wine bars and private gatherings.
-    </p>
+    <p>Premium Portuguese wines selected for restaurants, hotels, wine bars and private gatherings.</p>
 
     <div class="hero-actions">
       <a href="#collection" class="btn btn-primary">View Collection</a>
@@ -39,25 +34,95 @@
   </div>
 </section>
 
-<section class="collection" id="collection">
+<section class="collection-section" id="collection">
   <div class="container">
-    <div class="section-top">
-      <div>
-        <p class="eyebrow">Our Collection</p>
-        <h2>Wine Portfolio</h2>
-      </div>
-
-      <div class="nav-arrows">
-        <button onclick="slideWine(-1)">‹</button>
-        <button onclick="slideWine(1)">›</button>
-      </div>
+    <div class="section-header">
+      <p class="eyebrow">Our Collection</p>
+      <h2>Wine Portfolio</h2>
     </div>
 
-    <div class="wine-slider" id="wineSlider"></div>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="bottle-wrap">
+          <img src="images/bottles/mariana-red.png" class="product-bottle" alt="Mariana Red">
+        </div>
+        <div class="product-info">
+          <span>Red Wine</span>
+          <h3>Mariana Red 2024</h3>
+          <p>Elegant Portuguese red wine with smooth texture, ripe dark fruit and refined balance.</p>
+          <div class="product-footer">
+            <strong>890 THB</strong>
+            <button onclick="addToCart('Mariana Red 2024', 890)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="bottle-wrap">
+          <img src="images/bottles/mariana-white.png" class="product-bottle" alt="Mariana White">
+        </div>
+        <div class="product-info">
+          <span>White Wine</span>
+          <h3>Mariana White 2024</h3>
+          <p>Fresh tropical aroma with mineral elegance and vibrant acidity.</p>
+          <div class="product-footer">
+            <strong>750 THB</strong>
+            <button onclick="addToCart('Mariana White 2024', 750)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="bottle-wrap">
+          <img src="images/bottles/mariana-rose.png" class="product-bottle" alt="Mariana Rosé">
+        </div>
+        <div class="product-info">
+          <span>Rosé Wine</span>
+          <h3>Mariana Rosé 2024</h3>
+          <p>Light, modern and refreshing rosé wine with delicate fruit notes.</p>
+          <div class="product-footer">
+            <strong>750 THB</strong>
+            <button onclick="addToCart('Mariana Rosé 2024', 750)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="bottle-wrap">
+          <img src="images/bottles/goivo.png" class="product-bottle" alt="Goivo Vinho Verde">
+        </div>
+        <div class="product-info">
+          <span>Vinho Verde</span>
+          <h3>Goivo Vinho Verde</h3>
+          <p>Bright, crisp and refreshing Portuguese wine for seafood and warm weather.</p>
+          <div class="product-footer">
+            <strong>690 THB</strong>
+            <button onclick="addToCart('Goivo Vinho Verde', 690)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="bottle-wrap">
+          <img src="images/bottles/alicante-bouschet.png" class="product-bottle" alt="Alicante Bouschet">
+        </div>
+        <div class="product-info">
+          <span>Red Wine</span>
+          <h3>Alicante Bouschet</h3>
+          <p>Deep, bold and expressive premium Portuguese red wine with strong character.</p>
+          <div class="product-footer">
+            <strong>2,490 THB</strong>
+            <button onclick="addToCart('Alicante Bouschet', 2490)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<section class="cart">
+<section class="cart-section">
   <div class="container">
     <p class="eyebrow">Shopping Cart</p>
     <h2>Your Order</h2>
@@ -71,35 +136,28 @@
 
       <div class="payment-box">
         <h3>Payment Options</h3>
-
-        <div class="payment-grid">
+        <div class="payment-options">
           <div><i class="fa-solid fa-qrcode"></i> PromptPay</div>
           <div><i class="fa-solid fa-building-columns"></i> Bank Transfer</div>
         </div>
-
-        <p>
-          After placing your order, we will confirm stock, delivery fee and send PromptPay QR or bank account details via WhatsApp.
-        </p>
+        <p>After placing your order, we will confirm stock, delivery fee and send PromptPay QR or bank account details via WhatsApp.</p>
       </div>
 
-      <a id="whatsappOrder" class="send-order" href="https://wa.me/66961644422" target="_blank">
+      <a id="whatsappOrder" href="https://wa.me/66961644422" target="_blank" class="send-order">
         Send Order via WhatsApp
       </a>
     </div>
   </div>
 </section>
 
-<section class="contact">
+<section class="contact-section">
   <div class="container">
     <p class="eyebrow">Contact Solaris Wine</p>
     <h2>Let’s Talk Wine</h2>
-    <p class="contact-lead">
-      For wine orders, restaurant supply, hotel service, wine bars and private events.
-    </p>
+    <p class="contact-lead">For wine orders, restaurant supply, hotel service, wine bars and private events.</p>
 
     <div class="contact-grid">
-
-      <a href="https://wa.me/66961644422" target="_blank" class="contact-card whatsapp">
+      <a href="https://wa.me/66961644422" target="_blank" class="contact-card">
         <i class="fab fa-whatsapp"></i>
         <div>
           <strong>WhatsApp</strong>
@@ -107,7 +165,7 @@
         </div>
       </a>
 
-      <a href="https://line.me/R/ti/p/@solariswine" target="_blank" class="contact-card line">
+      <a href="https://line.me/R/ti/p/@solariswine" target="_blank" class="contact-card">
         <i class="fa-brands fa-line"></i>
         <div>
           <strong>LINE</strong>
@@ -115,14 +173,13 @@
         </div>
       </a>
 
-      <a href="mailto:solarisintertrade@gmail.com" class="contact-card email">
+      <a href="mailto:solarisintertrade@gmail.com" class="contact-card">
         <i class="fa-solid fa-envelope"></i>
         <div>
           <strong>Email</strong>
           <span>solarisintertrade@gmail.com</span>
         </div>
       </a>
-
     </div>
   </div>
 </section>
@@ -132,67 +189,34 @@
 </footer>
 
 <script>
-const wines = [
-  ["Mariana Vinho Tinto", "Red Wine", 890, "Elegant Portuguese red wine with smooth texture."],
-  ["Mariana Vinho Branco", "White Wine", 750, "Fresh and balanced white wine for seafood."],
-  ["Mariana Vinho Rosé", "Rosé Wine", 750, "Light, modern and refreshing rosé wine."],
-  ["Rocim Vindima Vinho Tinto", "Red Wine", 1390, "Modern Portuguese red with elegant structure."],
-  ["Rocim Vinho Branco", "White Wine", 1290, "Clean, refined and elegant Portuguese white wine."],
-  ["Rocim Vinho Tinto Reserva", "Reserve Red", 1890, "Premium reserve wine with depth and balance."],
-  ["Vale de Mata Vinho Tinto", "Red Wine", 1490, "Refined red wine with Portuguese character."],
-  ["Vale de Mata Vinho Branco", "White Wine", 1390, "Fresh and modern white wine from Portugal."],
-  ["Raio de Luz Vinho Tinto", "Red Wine", 1090, "Modern red wine with vibrant personality."],
-  ["Raio de Luz Vinho Branco", "White Wine", 990, "Fresh Portuguese white with elegant balance."],
-  ["Goivo Vinho Verde", "Vinho Verde", 690, "Bright, crisp and refreshing Portuguese wine."],
-  ["Alicante Bouschet Vinho Tinto", "Red Wine", 2490, "Deep, bold and expressive premium red wine."]
-];
-
-const images = [
-  "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1474722883778-792e7990302f?q=80&w=1000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1000&auto=format&fit=crop"
-];
-
-const slider = document.getElementById("wineSlider");
-
-wines.forEach((wine, index) => {
-  slider.innerHTML += `
-    <article class="wine-card">
-      <img src="${images[index % images.length]}" alt="${wine[0]}">
-      <div class="wine-info">
-        <span>${wine[1]}</span>
-        <h3>${wine[0]}</h3>
-        <p>${wine[3]}</p>
-        <strong>${wine[2].toLocaleString()} THB</strong>
-        <button onclick="addToCart('${wine[0]}', ${wine[2]})">Add to Cart</button>
-      </div>
-    </article>
-  `;
-});
-
 let cart = [];
 
-function slideWine(direction){
-  slider.scrollBy({ left: direction * 330, behavior: "smooth" });
-}
-
 function addToCart(name, price){
-  const item = cart.find(x => x.name === name);
-  if(item) item.qty++;
-  else cart.push({name, price, qty:1});
+  const item = cart.find(i => i.name === name);
+  if(item){
+    item.qty++;
+  } else {
+    cart.push({name, price, qty:1});
+  }
   renderCart();
 }
 
 function increaseQty(name){
-  cart.find(x => x.name === name).qty++;
+  const item = cart.find(i => i.name === name);
+  if(item) item.qty++;
   renderCart();
 }
 
 function decreaseQty(name){
-  const item = cart.find(x => x.name === name);
+  const item = cart.find(i => i.name === name);
+  if(!item) return;
+
   item.qty--;
-  if(item.qty <= 0) cart = cart.filter(x => x.name !== name);
+
+  if(item.qty <= 0){
+    cart = cart.filter(i => i.name !== name);
+  }
+
   renderCart();
 }
 
@@ -203,13 +227,11 @@ function renderCart(){
 
   if(cart.length === 0){
     cartItems.innerHTML = "No items yet.";
-    cartItems.className = "empty-cart";
     totalBox.innerText = "0";
     whatsapp.href = "https://wa.me/66961644422";
     return;
   }
 
-  cartItems.className = "";
   let total = 0;
   cartItems.innerHTML = "";
 
