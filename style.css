@@ -501,3 +501,121 @@ footer {
     font-size: 18px;
   }
 }
+/* MOBILE PREMIUM FIX */
+@media (max-width: 768px) {
+  section {
+    padding: 70px 22px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 80px 22px 60px;
+  }
+
+  .hero h1,
+  .intro h1,
+  .section-title,
+  h1 {
+    font-size: clamp(42px, 13vw, 64px) !important;
+    line-height: 0.95 !important;
+    letter-spacing: -2px;
+  }
+
+  .hero p,
+  .intro p,
+  .product-description,
+  .contact p,
+  p {
+    font-size: 20px !important;
+    line-height: 1.65 !important;
+  }
+
+  .eyebrow {
+    font-size: 15px !important;
+    letter-spacing: 9px;
+  }
+
+  .product-card {
+    padding: 42px 28px !important;
+    border-radius: 34px;
+    margin-bottom: 34px;
+  }
+
+  .product-card img,
+  .wine-bottle {
+    max-height: 360px !important;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto 36px;
+    display: block;
+  }
+
+  .product-card h2,
+  .product-title {
+    font-size: clamp(42px, 12vw, 58px) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -1.8px;
+  }
+
+  .price {
+    font-size: 44px !important;
+    margin-top: 28px;
+    margin-bottom: 22px;
+  }
+
+  .btn,
+  button,
+  .add-to-cart,
+  .whatsapp-btn {
+    width: 100%;
+    min-height: 68px;
+    border-radius: 999px;
+    font-size: 21px !important;
+    font-weight: 800;
+  }
+
+  .btn-primary,
+  .add-to-cart {
+    background: #5b0000 !important;
+    color: #fff !important;
+  }
+
+  .btn-secondary {
+    background: transparent !important;
+    color: #d6b56d !important;
+    border: 1px solid rgba(214,181,109,.55) !important;
+  }
+
+  .whatsapp-btn,
+  .whatsapp,
+  a[href*="wa.me"] {
+    color: #fff !important;
+    background: #5b0000 !important;
+  }
+
+  .whatsapp-btn span,
+  .whatsapp span,
+  a[href*="wa.me"] span {
+    color: #fff !important;
+  }
+
+  .cart,
+  .order-box,
+  .payment-box {
+    padding: 32px 24px !important;
+    border-radius: 28px;
+  }
+
+  .payment-options {
+    padding: 24px 18px !important;
+  }
+
+  .payment-options button {
+    font-size: 20px !important;
+    min-height: 58px;
+  }
+
+  .contact-card {
+    padding: 28px 22px !important;
+  }
+}
