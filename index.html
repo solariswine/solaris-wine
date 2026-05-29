@@ -6,268 +6,318 @@
   <title>Solaris Wine | Premium Portuguese Wines</title>
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- preload hero for faster first screen -->
+  <link rel="preload" as="image" href="images/hero.webp" />
 </head>
 
 <body>
 
-<header class="hero">
-  <div class="hero-panel">
-    <p class="eyebrow">Imported from Portugal</p>
-    <h1>Solaris Wine</h1>
-    <p>Premium Portuguese wines selected for restaurants, hotels, wine bars and private gatherings.</p>
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
 
-    <div class="hero-actions">
-      <a href="#collection" class="btn btn-primary">View Collection</a>
-      <a href="https://wa.me/66961644422" target="_blank" class="btn btn-outline">Order via WhatsApp</a>
+    <div class="hero-card">
+      <p class="eyebrow">Imported from Portugal</p>
+      <h1>Solaris<br>Wine</h1>
+      <p class="hero-text">
+        Premium Portuguese wines selected for restaurants, hotels, wine bars and private gatherings.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#collection" class="btn btn-primary">View Collection</a>
+        <a href="https://wa.me/66961644422" class="btn btn-outline">Order via WhatsApp</a>
+      </div>
     </div>
-  </div>
-</header>
+  </section>
 
-<section class="intro">
-  <div class="container">
+  <section class="intro">
     <p class="eyebrow">Solaris Wine</p>
     <h2>Selected Portuguese Wines for Thailand & Laos</h2>
-    <p class="lead">
+    <p>
       A refined selection of Portuguese wines for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.
     </p>
-  </div>
-</section>
+  </section>
 
-<section class="collection-section" id="collection">
-  <div class="container">
-    <div class="section-header">
-      <p class="eyebrow">Our Collection</p>
-      <h2>Wine Portfolio</h2>
+  <section class="collection-section" id="collection">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Our Collection</p>
+        <h2>Wine Portfolio</h2>
+      </div>
+
+      <div class="slider-buttons">
+        <button onclick="slideWine(-1)">‹</button>
+        <button onclick="slideWine(1)">›</button>
+      </div>
     </div>
 
-    <div class="products-grid">
+    <div class="wine-slider" id="wineSlider"></div>
+  </section>
 
-      <div class="product-card">
-        <div class="bottle-wrap">
-          <img src="images/bottles/mariana-red.png" class="product-bottle" alt="Mariana Red">
-        </div>
-        <div class="product-info">
-          <span>Red Wine</span>
-          <h3>Mariana Red 2024</h3>
-          <p>Elegant Portuguese red wine with smooth texture, ripe dark fruit and refined balance.</p>
-          <div class="product-footer">
-            <strong>890 THB</strong>
-            <button onclick="addToCart('Mariana Red 2024', 890)">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="bottle-wrap">
-          <img src="images/bottles/mariana-white.png" class="product-bottle" alt="Mariana White">
-        </div>
-        <div class="product-info">
-          <span>White Wine</span>
-          <h3>Mariana White 2024</h3>
-          <p>Fresh tropical aroma with mineral elegance and vibrant acidity.</p>
-          <div class="product-footer">
-            <strong>750 THB</strong>
-            <button onclick="addToCart('Mariana White 2024', 750)">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="bottle-wrap">
-          <img src="images/bottles/mariana-rose.png" class="product-bottle" alt="Mariana Rosé">
-        </div>
-        <div class="product-info">
-          <span>Rosé Wine</span>
-          <h3>Mariana Rosé 2024</h3>
-          <p>Light, modern and refreshing rosé wine with delicate fruit notes.</p>
-          <div class="product-footer">
-            <strong>750 THB</strong>
-            <button onclick="addToCart('Mariana Rosé 2024', 750)">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="bottle-wrap">
-          <img src="images/bottles/goivo.png" class="product-bottle" alt="Goivo Vinho Verde">
-        </div>
-        <div class="product-info">
-          <span>Vinho Verde</span>
-          <h3>Goivo Vinho Verde</h3>
-          <p>Bright, crisp and refreshing Portuguese wine for seafood and warm weather.</p>
-          <div class="product-footer">
-            <strong>690 THB</strong>
-            <button onclick="addToCart('Goivo Vinho Verde', 690)">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="bottle-wrap">
-          <img src="images/bottles/alicante-bouschet.png" class="product-bottle" alt="Alicante Bouschet">
-        </div>
-        <div class="product-info">
-          <span>Red Wine</span>
-          <h3>Alicante Bouschet</h3>
-          <p>Deep, bold and expressive premium Portuguese red wine with strong character.</p>
-          <div class="product-footer">
-            <strong>2,490 THB</strong>
-            <button onclick="addToCart('Alicante Bouschet', 2490)">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section class="cart-section">
-  <div class="container">
+  <section class="cart-section" id="cart">
     <p class="eyebrow">Shopping Cart</p>
     <h2>Your Order</h2>
 
     <div class="cart-box">
-      <div id="cartItems" class="empty-cart">No items yet.</div>
+      <div id="cartItems" class="cart-items">No items yet.</div>
 
       <div class="cart-total">
-        Total: <span id="total">0</span> THB
+        Total: <span id="cartTotal">0</span> THB
       </div>
 
       <div class="payment-box">
         <h3>Payment Options</h3>
-        <div class="payment-options">
-          <div><i class="fa-solid fa-qrcode"></i> PromptPay</div>
-          <div><i class="fa-solid fa-building-columns"></i> Bank Transfer</div>
-        </div>
-        <p>After placing your order, we will confirm stock, delivery fee and send PromptPay QR or bank account details via WhatsApp.</p>
+        <div class="payment-pill">▦ PromptPay QR</div>
+        <div class="payment-pill">🏦 Bank Transfer</div>
+        <p>
+          After placing your order, we will confirm stock, delivery fee and send PromptPay QR or bank account details via WhatsApp.
+        </p>
       </div>
 
-      <a id="whatsappOrder" href="https://wa.me/66961644422" target="_blank" class="send-order">
-        Send Order via WhatsApp
-      </a>
+      <button class="btn btn-primary full" onclick="sendOrder()">Send Order via WhatsApp</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="contact-section">
-  <div class="container">
+  <section class="contact-section" id="contact">
     <p class="eyebrow">Contact Solaris Wine</p>
     <h2>Let’s Talk Wine</h2>
-    <p class="contact-lead">For wine orders, restaurant supply, hotel service, wine bars and private events.</p>
+    <p class="contact-intro">
+      For wine orders, restaurant supply, hotel service, wine bars and private events.
+    </p>
 
     <div class="contact-grid">
-      <a href="https://wa.me/66961644422" target="_blank" class="contact-card">
-        <i class="fab fa-whatsapp"></i>
+      <a class="contact-card whatsapp" href="https://wa.me/66961644422" target="_blank">
+        <span>☘</span>
         <div>
           <strong>WhatsApp</strong>
-          <span>+66 961644422</span>
+          <p>+66 961644422</p>
         </div>
       </a>
 
-      <a href="https://line.me/R/ti/p/@solariswine" target="_blank" class="contact-card">
-        <i class="fa-brands fa-line"></i>
+      <a class="contact-card line" href="https://line.me/R/ti/p/@solariswine" target="_blank">
+        <span>LINE</span>
         <div>
           <strong>LINE</strong>
-          <span>@solariswine</span>
+          <p>@solariswine</p>
         </div>
       </a>
 
-      <a href="mailto:solarisintertrade@gmail.com" class="contact-card">
-        <i class="fa-solid fa-envelope"></i>
+      <a class="contact-card email" href="mailto:solarisintertrade@gmail.com">
+        <span>✉</span>
         <div>
           <strong>Email</strong>
-          <span>solarisintertrade@gmail.com</span>
+          <p>solarisintertrade@gmail.com</p>
         </div>
       </a>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  © 2026 Solaris Wine. Premium Portuguese Wines.
-</footer>
+  <footer>
+    © 2026 Solaris Wine. Premium Portuguese Wines.
+  </footer>
 
-<script>
-let cart = [];
+  <script>
+    const wines = [
+      {
+        name: "Mariana Vinho Tinto",
+        type: "Red Wine",
+        desc: "Elegant Portuguese red wine with smooth texture and rich character.",
+        price: 890,
+        img: "images/bottles/mariana-red.webp"
+      },
+      {
+        name: "Mariana Vinho Branco",
+        type: "White Wine",
+        desc: "Fresh tropical aroma with mineral elegance and vibrant acidity.",
+        price: 750,
+        img: "images/bottles/mariana-white.webp"
+      },
+      {
+        name: "Mariana Vinho Rosé",
+        type: "Rosé Wine",
+        desc: "Light, modern and refreshing rosé wine with delicate fruit notes.",
+        price: 750,
+        img: "images/bottles/mariana-rose.webp"
+      },
+      {
+        name: "Rocim Vindima Vinho Tinto",
+        type: "Red Wine",
+        desc: "Deep ruby red wine with black fruit, spice and balanced acidity.",
+        price: 1290,
+        img: "images/bottles/rocim-vindima-red.webp"
+      },
+      {
+        name: "Rocim Vinho Branco",
+        type: "White Wine",
+        desc: "Mineral and citric aroma with freshness and elegant complexity.",
+        price: 1190,
+        img: "images/bottles/rocim-white.webp"
+      },
+      {
+        name: "Rocim Vinho Tinto Reserva",
+        type: "Red Wine",
+        desc: "Premium reserva red wine with depth, structure and long finish.",
+        price: 1890,
+        img: "images/bottles/rocim-reserva-red.webp"
+      },
+      {
+        name: "Vale de Mata Vinho Tinto",
+        type: "Red Wine",
+        desc: "Smooth Portuguese red with soft tannins and generous fruit.",
+        price: 990,
+        img: "images/bottles/vale-mata-red.webp"
+      },
+      {
+        name: "Vale de Mata Vinho Branco",
+        type: "White Wine",
+        desc: "Fresh white wine with clean fruit, balance and easy elegance.",
+        price: 890,
+        img: "images/bottles/vale-mata-white.webp"
+      },
+      {
+        name: "Raio de Luz Vinho Tinto",
+        type: "Red Wine",
+        desc: "Douro red wine with fresh fruit, polished tannins and intensity.",
+        price: 1290,
+        img: "images/bottles/raio-luz-red.webp"
+      },
+      {
+        name: "Raio de Luz Vinho Branco",
+        type: "White Wine",
+        desc: "Elegant Portuguese white wine with freshness and refined character.",
+        price: 1190,
+        img: "images/bottles/raio-luz-white.webp"
+      },
+      {
+        name: "Goivo Vinho Verde",
+        type: "Vinho Verde",
+        desc: "Bright, crisp and refreshing wine, perfect for seafood and warm weather.",
+        price: 690,
+        img: "images/bottles/goivo.webp"
+      },
+      {
+        name: "Alicante Bouschet Vinho Tinto",
+        type: "Red Wine",
+        desc: "Deep, bold and expressive premium red wine with strong personality.",
+        price: 2490,
+        img: "images/bottles/alicante-bouschet.webp"
+      }
+    ];
 
-function addToCart(name, price){
-  const item = cart.find(i => i.name === name);
-  if(item){
-    item.qty++;
-  } else {
-    cart.push({name, price, qty:1});
-  }
-  renderCart();
-}
+    let cart = {};
 
-function increaseQty(name){
-  const item = cart.find(i => i.name === name);
-  if(item) item.qty++;
-  renderCart();
-}
+    const slider = document.getElementById("wineSlider");
 
-function decreaseQty(name){
-  const item = cart.find(i => i.name === name);
-  if(!item) return;
-
-  item.qty--;
-
-  if(item.qty <= 0){
-    cart = cart.filter(i => i.name !== name);
-  }
-
-  renderCart();
-}
-
-function renderCart(){
-  const cartItems = document.getElementById("cartItems");
-  const totalBox = document.getElementById("total");
-  const whatsapp = document.getElementById("whatsappOrder");
-
-  if(cart.length === 0){
-    cartItems.innerHTML = "No items yet.";
-    totalBox.innerText = "0";
-    whatsapp.href = "https://wa.me/66961644422";
-    return;
-  }
-
-  let total = 0;
-  cartItems.innerHTML = "";
-
-  cart.forEach(item => {
-    const subtotal = item.price * item.qty;
-    total += subtotal;
-
-    cartItems.innerHTML += `
-      <div class="cart-item">
-        <div>
-          <strong>${item.name}</strong>
-          <small>${item.price.toLocaleString()} THB / bottle</small>
+    wines.forEach((wine, index) => {
+      const card = document.createElement("div");
+      card.className = "wine-card";
+      card.innerHTML = `
+        <div class="image-wrap">
+          <img src="${wine.img}" alt="${wine.name}" loading="lazy" width="500" height="700">
         </div>
-
-        <div class="qty-control">
-          <button onclick="decreaseQty('${item.name}')">−</button>
-          <span>${item.qty}</span>
-          <button onclick="increaseQty('${item.name}')">+</button>
+        <div class="wine-info">
+          <p class="wine-type">${wine.type}</p>
+          <h3>${wine.name}</h3>
+          <p>${wine.desc}</p>
+          <div class="price">${wine.price.toLocaleString()} THB</div>
+          <button onclick="addToCart(${index})">Add to Cart</button>
         </div>
+      `;
+      slider.appendChild(card);
+    });
 
-        <b>${subtotal.toLocaleString()} THB</b>
-      </div>
-    `;
-  });
+    function slideWine(direction) {
+      const width = slider.querySelector(".wine-card").offsetWidth + 24;
+      slider.scrollBy({
+        left: direction * width,
+        behavior: "smooth"
+      });
+    }
 
-  totalBox.innerText = total.toLocaleString();
+    function addToCart(index) {
+      const wine = wines[index];
+      if (!cart[wine.name]) {
+        cart[wine.name] = {
+          ...wine,
+          qty: 1
+        };
+      } else {
+        cart[wine.name].qty++;
+      }
+      renderCart();
+    }
 
-  const message = encodeURIComponent(
-    "Solaris Wine Order\n\n" +
-    cart.map(item => `${item.name} x ${item.qty} = ${(item.price * item.qty).toLocaleString()} THB`).join("\n") +
-    `\n\nTotal: ${total.toLocaleString()} THB`
-  );
+    function changeQty(name, amount) {
+      if (!cart[name]) return;
+      cart[name].qty += amount;
 
-  whatsapp.href = `https://wa.me/66961644422?text=${message}`;
-}
-</script>
+      if (cart[name].qty <= 0) {
+        delete cart[name];
+      }
+
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartItems = document.getElementById("cartItems");
+      const cartTotal = document.getElementById("cartTotal");
+
+      const items = Object.values(cart);
+
+      if (items.length === 0) {
+        cartItems.innerHTML = "No items yet.";
+        cartTotal.textContent = "0";
+        return;
+      }
+
+      let total = 0;
+
+      cartItems.innerHTML = items.map(item => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+
+        return `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong>
+              <small>${item.price.toLocaleString()} THB x ${item.qty}</small>
+            </div>
+
+            <div class="qty-control">
+              <button onclick="changeQty('${item.name}', -1)">−</button>
+              <span>${item.qty}</span>
+              <button onclick="changeQty('${item.name}', 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      cartTotal.textContent = total.toLocaleString();
+    }
+
+    function sendOrder() {
+      const items = Object.values(cart);
+
+      if (items.length === 0) {
+        alert("Please add wine to cart first.");
+        return;
+      }
+
+      let message = "Hello Solaris Wine, I would like to order:%0A%0A";
+      let total = 0;
+
+      items.forEach(item => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        message += `- ${item.name} x ${item.qty} = ${subtotal.toLocaleString()} THB%0A`;
+      });
+
+      message += `%0ATotal: ${total.toLocaleString()} THB%0A`;
+      message += `%0APayment: PromptPay / Bank Transfer`;
+
+      window.open(`https://wa.me/66961644422?text=${message}`, "_blank");
+    }
+  </script>
 
 </body>
 </html>
