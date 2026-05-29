@@ -586,18 +586,16 @@ footer {
     border: 1px solid rgba(214,181,109,.55) !important;
   }
 
-  .whatsapp-btn,
-  .whatsapp,
-  a[href*="wa.me"] {
-    color: #fff !important;
-    background: #5b0000 !important;
-  }
+  .whatsapp-btn {
+  background: #5b0000;
+  color: #fff;
+  border: 1px solid rgba(214,181,109,.45);
+}
 
-  .whatsapp-btn span,
-  .whatsapp span,
-  a[href*="wa.me"] span {
-    color: #fff !important;
-  }
+.whatsapp-btn i,
+.whatsapp-icon {
+  color: #25D366;
+}
 
   .cart,
   .order-box,
