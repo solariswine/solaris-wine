@@ -7,13 +7,12 @@
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- preload hero for faster first screen -->
-  <link rel="preload" as="image" href="images/hero.webp" />
+  <link rel="preload" as="image" href="images/hero-wine.webp" />
 </head>
 
 <body>
 
-  <section class="hero" id="top">
+  <header class="hero" id="home">
     <div class="hero-bg"></div>
 
     <div class="hero-card">
@@ -24,300 +23,124 @@
       </p>
 
       <div class="hero-actions">
-        <a href="#collection" class="btn btn-primary">View Collection</a>
-        <a href="https://wa.me/66961644422" class="btn btn-outline">Order via WhatsApp</a>
+        <a href="#collection" class="btn primary">View Collection</a>
+        <a href="https://wa.me/66961644422" class="btn outline">Order via WhatsApp</a>
       </div>
     </div>
-  </section>
+  </header>
 
-  <section class="intro">
-    <p class="eyebrow">Solaris Wine</p>
-    <h2>Selected Portuguese Wines for Thailand & Laos</h2>
-    <p>
-      A refined selection of Portuguese wines for restaurants, hotels, wine bars and private customers who value elegance, balance and authentic character.
-    </p>
-  </section>
+  <main>
 
-  <section class="collection-section" id="collection">
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">Our Collection</p>
-        <h2>Wine Portfolio</h2>
-      </div>
+    <section class="intro section">
+      <p class="eyebrow">Solaris Wine</p>
+      <h2>Selected Portuguese Wines for Thailand & Laos</h2>
+      <p>
+        A refined selection of Portuguese wines for restaurants, hotels, wine bars and private customers
+        who value elegance, balance and authentic character.
+      </p>
+    </section>
 
-      <div class="slider-buttons">
-        <button onclick="slideWine(-1)">‹</button>
-        <button onclick="slideWine(1)">›</button>
-      </div>
-    </div>
-
-    <div class="wine-slider" id="wineSlider"></div>
-  </section>
-
-  <section class="cart-section" id="cart">
-    <p class="eyebrow">Shopping Cart</p>
-    <h2>Your Order</h2>
-
-    <div class="cart-box">
-      <div id="cartItems" class="cart-items">No items yet.</div>
-
-      <div class="cart-total">
-        Total: <span id="cartTotal">0</span> THB
-      </div>
-
-      <div class="payment-box">
-        <h3>Payment Options</h3>
-        <div class="payment-pill">▦ PromptPay QR</div>
-        <div class="payment-pill">🏦 Bank Transfer</div>
-        <p>
-          After placing your order, we will confirm stock, delivery fee and send PromptPay QR or bank account details via WhatsApp.
-        </p>
-      </div>
-
-      <button class="btn btn-primary full" onclick="sendOrder()">Send Order via WhatsApp</button>
-    </div>
-  </section>
-
-  <section class="contact-section" id="contact">
-    <p class="eyebrow">Contact Solaris Wine</p>
-    <h2>Let’s Talk Wine</h2>
-    <p class="contact-intro">
-      For wine orders, restaurant supply, hotel service, wine bars and private events.
-    </p>
-
-    <div class="contact-grid">
-      <a class="contact-card whatsapp" href="https://wa.me/66961644422" target="_blank">
-        <span>☘</span>
+    <section class="section collection" id="collection">
+      <div class="section-head">
         <div>
-          <strong>WhatsApp</strong>
-          <p>+66 961644422</p>
+          <p class="eyebrow">Our Collection</p>
+          <h2>Wine Portfolio</h2>
         </div>
-      </a>
 
-      <a class="contact-card line" href="https://line.me/R/ti/p/@solariswine" target="_blank">
-        <span>LINE</span>
-        <div>
-          <strong>LINE</strong>
-          <p>@solariswine</p>
+        <div class="slider-buttons">
+          <button class="nav-btn" onclick="scrollWines(-1)">‹</button>
+          <button class="nav-btn" onclick="scrollWines(1)">›</button>
         </div>
-      </a>
+      </div>
 
-      <a class="contact-card email" href="mailto:solarisintertrade@gmail.com">
-        <span>✉</span>
-        <div>
-          <strong>Email</strong>
-          <p>solarisintertrade@gmail.com</p>
+      <div class="wine-slider" id="wineSlider"></div>
+    </section>
+
+    <section class="section cart-section" id="cart">
+      <p class="eyebrow">Shopping Cart</p>
+      <h2>Your Order</h2>
+
+      <div class="cart-box">
+        <div id="cartItems" class="cart-items">No items yet.</div>
+
+        <div class="cart-total">
+          Total: <span id="cartTotal">0</span> THB
         </div>
-      </a>
-    </div>
-  </section>
+
+        <div class="payment-box">
+          <h3>Payment Options</h3>
+
+          <div class="payment-option">
+            <span>▦</span>
+            <div>
+              <strong>PromptPay</strong>
+              <small>QR payment will be confirmed via WhatsApp.</small>
+            </div>
+          </div>
+
+          <div class="payment-option">
+            <span>🏦</span>
+            <div>
+              <strong>Bank Transfer</strong>
+              <small>Bank account details will be sent after order confirmation.</small>
+            </div>
+          </div>
+
+          <p class="payment-note">
+            After placing your order, we will confirm stock, delivery fee and payment details via WhatsApp.
+          </p>
+        </div>
+
+        <button class="btn primary full" onclick="sendOrderWhatsApp()">
+          Send Order via WhatsApp
+        </button>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <p class="eyebrow">Contact Solaris Wine</p>
+      <h2>Let’s Talk Wine</h2>
+      <p>
+        For wine orders, restaurant supply, hotel service, wine bars and private events.
+      </p>
+
+      <div class="contact-grid">
+
+        <a class="contact-card whatsapp" href="https://wa.me/66961644422" target="_blank">
+          <span>☏</span>
+          <div>
+            <strong>WhatsApp</strong>
+            <small>+66 961644422</small>
+          </div>
+        </a>
+
+        <a class="contact-card line" href="https://line.me/R/ti/p/@solariswine" target="_blank">
+          <span>LINE</span>
+          <div>
+            <strong>LINE</strong>
+            <small>@solariswine</small>
+          </div>
+        </a>
+
+        <a class="contact-card email" href="mailto:solarisintertrade@gmail.com">
+          <span>✉</span>
+          <div>
+            <strong>Email</strong>
+            <small>solarisintertrade@gmail.com</small>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
 
   <footer>
     © 2026 Solaris Wine. Premium Portuguese Wines.
   </footer>
 
-  <script>
-    const wines = [
-      {
-        name: "Mariana Vinho Tinto",
-        type: "Red Wine",
-        desc: "Elegant Portuguese red wine with smooth texture and rich character.",
-        price: 890,
-        img: "images/bottles/mariana-red.webp"
-      },
-      {
-        name: "Mariana Vinho Branco",
-        type: "White Wine",
-        desc: "Fresh tropical aroma with mineral elegance and vibrant acidity.",
-        price: 750,
-        img: "images/bottles/mariana-white.webp"
-      },
-      {
-        name: "Mariana Vinho Rosé",
-        type: "Rosé Wine",
-        desc: "Light, modern and refreshing rosé wine with delicate fruit notes.",
-        price: 750,
-        img: "images/bottles/mariana-rose.webp"
-      },
-      {
-        name: "Rocim Vindima Vinho Tinto",
-        type: "Red Wine",
-        desc: "Deep ruby red wine with black fruit, spice and balanced acidity.",
-        price: 1290,
-        img: "images/bottles/rocim-vindima-red.webp"
-      },
-      {
-        name: "Rocim Vinho Branco",
-        type: "White Wine",
-        desc: "Mineral and citric aroma with freshness and elegant complexity.",
-        price: 1190,
-        img: "images/bottles/rocim-white.webp"
-      },
-      {
-        name: "Rocim Vinho Tinto Reserva",
-        type: "Red Wine",
-        desc: "Premium reserva red wine with depth, structure and long finish.",
-        price: 1890,
-        img: "images/bottles/rocim-reserva-red.webp"
-      },
-      {
-        name: "Vale de Mata Vinho Tinto",
-        type: "Red Wine",
-        desc: "Smooth Portuguese red with soft tannins and generous fruit.",
-        price: 990,
-        img: "images/bottles/vale-mata-red.webp"
-      },
-      {
-        name: "Vale de Mata Vinho Branco",
-        type: "White Wine",
-        desc: "Fresh white wine with clean fruit, balance and easy elegance.",
-        price: 890,
-        img: "images/bottles/vale-mata-white.webp"
-      },
-      {
-        name: "Raio de Luz Vinho Tinto",
-        type: "Red Wine",
-        desc: "Douro red wine with fresh fruit, polished tannins and intensity.",
-        price: 1290,
-        img: "images/bottles/raio-luz-red.webp"
-      },
-      {
-        name: "Raio de Luz Vinho Branco",
-        type: "White Wine",
-        desc: "Elegant Portuguese white wine with freshness and refined character.",
-        price: 1190,
-        img: "images/bottles/raio-luz-white.webp"
-      },
-      {
-        name: "Goivo Vinho Verde",
-        type: "Vinho Verde",
-        desc: "Bright, crisp and refreshing wine, perfect for seafood and warm weather.",
-        price: 690,
-        img: "images/bottles/goivo.webp"
-      },
-      {
-        name: "Alicante Bouschet Vinho Tinto",
-        type: "Red Wine",
-        desc: "Deep, bold and expressive premium red wine with strong personality.",
-        price: 2490,
-        img: "images/bottles/alicante-bouschet.webp"
-      }
-    ];
+  <button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">⌃</button>
 
-    let cart = {};
-
-    const slider = document.getElementById("wineSlider");
-
-    wines.forEach((wine, index) => {
-      const card = document.createElement("div");
-      card.className = "wine-card";
-      card.innerHTML = `
-        <div class="image-wrap">
-          <img src="${wine.img}" alt="${wine.name}" loading="lazy" width="500" height="700">
-        </div>
-        <div class="wine-info">
-          <p class="wine-type">${wine.type}</p>
-          <h3>${wine.name}</h3>
-          <p>${wine.desc}</p>
-          <div class="price">${wine.price.toLocaleString()} THB</div>
-          <button onclick="addToCart(${index})">Add to Cart</button>
-        </div>
-      `;
-      slider.appendChild(card);
-    });
-
-    function slideWine(direction) {
-      const width = slider.querySelector(".wine-card").offsetWidth + 24;
-      slider.scrollBy({
-        left: direction * width,
-        behavior: "smooth"
-      });
-    }
-
-    function addToCart(index) {
-      const wine = wines[index];
-      if (!cart[wine.name]) {
-        cart[wine.name] = {
-          ...wine,
-          qty: 1
-        };
-      } else {
-        cart[wine.name].qty++;
-      }
-      renderCart();
-    }
-
-    function changeQty(name, amount) {
-      if (!cart[name]) return;
-      cart[name].qty += amount;
-
-      if (cart[name].qty <= 0) {
-        delete cart[name];
-      }
-
-      renderCart();
-    }
-
-    function renderCart() {
-      const cartItems = document.getElementById("cartItems");
-      const cartTotal = document.getElementById("cartTotal");
-
-      const items = Object.values(cart);
-
-      if (items.length === 0) {
-        cartItems.innerHTML = "No items yet.";
-        cartTotal.textContent = "0";
-        return;
-      }
-
-      let total = 0;
-
-      cartItems.innerHTML = items.map(item => {
-        const subtotal = item.price * item.qty;
-        total += subtotal;
-
-        return `
-          <div class="cart-item">
-            <div>
-              <strong>${item.name}</strong>
-              <small>${item.price.toLocaleString()} THB x ${item.qty}</small>
-            </div>
-
-            <div class="qty-control">
-              <button onclick="changeQty('${item.name}', -1)">−</button>
-              <span>${item.qty}</span>
-              <button onclick="changeQty('${item.name}', 1)">+</button>
-            </div>
-          </div>
-        `;
-      }).join("");
-
-      cartTotal.textContent = total.toLocaleString();
-    }
-
-    function sendOrder() {
-      const items = Object.values(cart);
-
-      if (items.length === 0) {
-        alert("Please add wine to cart first.");
-        return;
-      }
-
-      let message = "Hello Solaris Wine, I would like to order:%0A%0A";
-      let total = 0;
-
-      items.forEach(item => {
-        const subtotal = item.price * item.qty;
-        total += subtotal;
-        message += `- ${item.name} x ${item.qty} = ${subtotal.toLocaleString()} THB%0A`;
-      });
-
-      message += `%0ATotal: ${total.toLocaleString()} THB%0A`;
-      message += `%0APayment: PromptPay / Bank Transfer`;
-
-      window.open(`https://wa.me/66961644422?text=${message}`, "_blank");
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
