@@ -1,213 +1,550 @@
 :root{
-  --gold:#d4b06a;
-  --bg:#050505;
-  --card:#0a0a0a;
-  --text:#f5f5f5;
-  --muted:#b0b0b0;
+  --black:#030303;
+  --card:#080808;
+  --gold:#c8a96a;
+  --wine:#5b0806;
+  --cream:#f4f0e8;
+  --muted:#a9a39b;
+  --green:#65d65c;
+  --border:rgba(200,169,106,.18);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-  background:#000;
-  color:var(--text);
-  font-family:Inter,sans-serif;
+  background:var(--black);
+  color:var(--cream);
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
 }
 
 /* HERO */
 
 .hero{
-  min-height:100vh;
+  min-height:100svh;
+  position:relative;
   display:flex;
-  align-items:center;
   justify-content:center;
-  padding:80px 24px;
-  text-align:center;
+  align-items:center;
+  padding:24px;
+  overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
   background:
-    radial-gradient(circle at center,
-    rgba(90,0,0,.25) 0%,
-    rgba(0,0,0,1) 70%);
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.7)),
+    url("images/hero.webp") center/cover no-repeat;
+  filter:brightness(.75);
+}
+
+.hero-card{
+  position:relative;
+  width:min(680px,100%);
+  padding:56px 36px;
+  border-radius:34px;
+  background:rgba(0,0,0,.62);
+  border:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  backdrop-filter:blur(10px);
+  box-shadow:0 40px 100px rgba(0,0,0,.7);
+}
+
+.eyebrow{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.38em;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:18px;
 }
 
 .hero h1{
-  font-size:clamp(3rem,12vw,5.5rem);
-  line-height:.95;
-  font-weight:800;
-  margin-bottom:30px;
+  font-size:clamp(56px,15vw,112px);
+  line-height:.92;
+  letter-spacing:-.06em;
+  margin-bottom:28px;
 }
 
-.hero p{
-  font-size:1.2rem;
+.hero-text{
   color:var(--muted);
-  max-width:700px;
+  font-size:clamp(20px,5vw,34px);
+  line-height:1.65;
+  max-width:580px;
+  margin:0 auto 36px;
+}
+
+.hero-actions{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.btn{
+  border:0;
+  cursor:pointer;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:58px;
+  padding:16px 28px;
+  border-radius:999px;
+  font-size:20px;
+  font-weight:800;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,#7a0d08,#4b0503);
+  color:var(--green);
+  box-shadow:0 16px 40px rgba(91,8,6,.45);
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.18);
+  color:var(--green);
+  background:rgba(255,255,255,.03);
+}
+
+.full{
+  width:100%;
+}
+
+/* INTRO */
+
+.intro{
+  padding:88px 24px 60px;
+  max-width:980px;
   margin:auto;
 }
 
-.hero-small{
-  color:var(--gold);
-  letter-spacing:8px;
-  text-transform:uppercase;
-  font-size:.9rem;
-  margin-bottom:25px;
+.intro h2{
+  font-size:clamp(44px,10vw,86px);
+  line-height:1.05;
+  letter-spacing:-.06em;
+  max-width:850px;
+}
+
+.intro p:last-child{
+  margin-top:32px;
+  color:var(--muted);
+  font-size:clamp(22px,5vw,34px);
+  line-height:1.75;
 }
 
 /* COLLECTION */
 
-.collection{
-  padding:120px 20px;
+.collection-section{
+  padding:70px 24px;
 }
 
-.section-label{
+.section-head{
+  max-width:1180px;
+  margin:0 auto 34px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+}
+
+.section-head h2,
+.cart-section h2,
+.contact-section h2{
+  font-size:clamp(48px,12vw,92px);
+  line-height:.95;
+  letter-spacing:-.06em;
+}
+
+.slider-buttons{
+  display:flex;
+  gap:10px;
+}
+
+.slider-buttons button{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:#111;
   color:var(--gold);
-  letter-spacing:8px;
+  font-size:34px;
+  cursor:pointer;
+}
+
+.wine-slider{
+  max-width:1180px;
+  margin:auto;
+  display:flex;
+  gap:24px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-padding:24px;
+  padding:8px 0 24px;
+  scrollbar-width:none;
+}
+
+.wine-slider::-webkit-scrollbar{
+  display:none;
+}
+
+.wine-card{
+  flex:0 0 min(420px,86vw);
+  scroll-snap-align:start;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at top,rgba(120,0,0,.18),rgba(0,0,0,.96) 62%);
+  border:1px solid var(--border);
+  overflow:hidden;
+  box-shadow:0 24px 70px rgba(0,0,0,.65);
+}
+
+.image-wrap{
+  height:420px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:36px;
+  background:
+    radial-gradient(circle at 50% 40%,rgba(255,255,255,.08),transparent 35%),
+    #050505;
+}
+
+.image-wrap img{
+  height:100%;
+  width:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 35px 45px rgba(0,0,0,.9));
+}
+
+.wine-info{
+  padding:34px;
+}
+
+.wine-type{
+  color:var(--gold);
+  letter-spacing:.36em;
   text-transform:uppercase;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.wine-info h3{
+  font-size:clamp(34px,8vw,52px);
+  line-height:1.02;
+  letter-spacing:-.05em;
   margin-bottom:20px;
 }
 
-.section-title{
-  font-size:clamp(3rem,10vw,5rem);
-  line-height:.95;
-  margin-bottom:60px;
-}
-
-/* PRODUCT CARD */
-
-.product-card{
-  background:
-  radial-gradient(circle at top,
-  rgba(120,0,0,.18),
-  rgba(0,0,0,.95));
-
-  border:1px solid rgba(212,176,106,.15);
-
-  border-radius:32px;
-
-  padding:40px;
-
-  overflow:hidden;
-
-  margin-bottom:40px;
-
-  box-shadow:
-  0 20px 80px rgba(0,0,0,.7);
-
-  transition:.35s;
-}
-
-.product-card:hover{
-  transform:translateY(-8px);
-}
-
-.product-image{
-  width:100%;
-  height:420px;
-  object-fit:contain;
-
-  filter:
-  drop-shadow(0 30px 50px rgba(0,0,0,.9));
-}
-
-.product-type{
-  color:var(--gold);
-  letter-spacing:8px;
-  font-size:.85rem;
-  text-transform:uppercase;
-  margin-top:20px;
-}
-
-.product-name{
-  font-size:3rem;
-  line-height:1;
-  margin:20px 0;
-  font-weight:800;
-}
-
-.product-desc{
+.wine-info p{
   color:var(--muted);
-  line-height:1.8;
+  font-size:22px;
+  line-height:1.65;
+  margin-bottom:24px;
 }
 
 .price{
-  font-size:3rem;
-  font-weight:800;
-  margin-top:25px;
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:24px;
 }
 
-/* BUTTONS */
-
-.btn{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-
+.wine-info button{
   width:100%;
-
-  padding:18px;
-
+  border:0;
   border-radius:999px;
-
-  text-decoration:none;
-
-  font-weight:700;
-
-  transition:.3s;
+  padding:18px 22px;
+  background:linear-gradient(135deg,#7a0d08,#4b0503);
+  color:var(--cream);
+  font-size:22px;
+  font-weight:900;
+  cursor:pointer;
 }
 
-.btn-primary{
-  background:var(--gold);
-  color:#000;
+/* CART */
+
+.cart-section{
+  max-width:820px;
+  margin:auto;
+  padding:70px 24px;
 }
 
-.btn-primary:hover{
-  transform:translateY(-2px);
+.cart-box{
+  margin-top:36px;
+  padding:34px;
+  border-radius:30px;
+  background:#050505;
+  border:1px solid rgba(255,255,255,.08);
 }
 
-.btn-whatsapp{
-  background:#25D366;
-  color:#000;
+.cart-items{
+  color:var(--muted);
+  font-size:22px;
+  line-height:1.6;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.cart-item strong{
+  display:block;
+  font-size:20px;
+  color:var(--cream);
+}
+
+.cart-item small{
+  display:block;
+  color:var(--muted);
+  margin-top:6px;
+}
+
+.qty-control{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.qty-control button{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:#111;
+  color:var(--gold);
+  font-size:22px;
+  font-weight:900;
+}
+
+.qty-control span{
+  min-width:24px;
+  text-align:center;
+  font-weight:800;
+}
+
+.cart-total{
+  margin:30px 0;
+  padding-top:26px;
+  border-top:1px solid rgba(255,255,255,.08);
+  font-size:clamp(36px,10vw,62px);
+  font-weight:900;
+  letter-spacing:-.05em;
+}
+
+.payment-box{
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:26px;
+  margin-bottom:28px;
+}
+
+.payment-box h3{
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+.payment-pill{
+  border:1px solid var(--border);
+  padding:16px;
+  border-radius:999px;
+  text-align:center;
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:14px;
+}
+
+.payment-box p{
+  color:var(--muted);
+  font-size:22px;
+  line-height:1.65;
+  margin-top:20px;
 }
 
 /* CONTACT */
 
-.contact-card{
-  background:#050505;
-
-  border:1px solid rgba(255,255,255,.08);
-
-  border-radius:30px;
-
-  padding:28px;
-
-  backdrop-filter:blur(10px);
-
-  box-shadow:
-  0 0 40px rgba(255,255,255,.03);
+.contact-section{
+  max-width:900px;
+  margin:auto;
+  padding:90px 24px 70px;
+  text-align:center;
 }
 
-.contact-card h3{
-  font-size:2rem;
-  margin-bottom:10px;
+.contact-intro{
+  color:var(--muted);
+  font-size:clamp(22px,5vw,34px);
+  line-height:1.7;
+  margin:26px auto 42px;
+  max-width:760px;
+}
+
+.contact-grid{
+  display:grid;
+  gap:18px;
+}
+
+.contact-card{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  align-items:center;
+  text-align:left;
+  gap:20px;
+  padding:26px;
+  border-radius:26px;
+  background:#050505;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.contact-card span{
+  font-size:34px;
+  color:var(--gold);
+  text-align:center;
+}
+
+.contact-card strong{
+  display:block;
+  font-size:28px;
 }
 
 .contact-card p{
+  margin-top:8px;
+  font-size:22px;
   color:var(--muted);
+  word-break:break-word;
+}
+
+.whatsapp strong,
+.whatsapp p{
+  color:var(--green);
+}
+
+.line strong,
+.line p,
+.email strong,
+.email p{
+  color:#f4e85d;
+}
+
+footer{
+  padding:34px 24px 60px;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,.08);
+  font-size:18px;
 }
 
 /* MOBILE */
 
-@media(max-width:768px){
-
+@media(max-width:600px){
   .hero{
-    padding:100px 24px;
+    padding:18px;
   }
 
-  .product-image{
-    height:320px;
+  .hero-card{
+    padding:46px 24px;
+    border-radius:30px;
   }
 
-  .product-name{
-    font-size:2.5rem;
+  .hero h1{
+    font-size:64px;
+  }
+
+  .hero-text{
+    font-size:24px;
+    line-height:1.55;
+  }
+
+  .btn{
+    min-height:54px;
+    font-size:18px;
+  }
+
+  .intro{
+    padding:76px 24px 50px;
+  }
+
+  .intro h2{
+    font-size:52px;
+  }
+
+  .intro p:last-child{
+    font-size:24px;
+  }
+
+  .section-head{
+    align-items:center;
+  }
+
+  .slider-buttons button{
+    width:38px;
+    height:38px;
+    font-size:28px;
+  }
+
+  .wine-card{
+    flex-basis:86vw;
+  }
+
+  .image-wrap{
+    height:350px;
+    padding:28px;
+  }
+
+  .wine-info{
+    padding:28px;
+  }
+
+  .wine-info h3{
+    font-size:40px;
+  }
+
+  .wine-info p{
+    font-size:21px;
   }
 
   .price{
-    font-size:2.5rem;
+    font-size:40px;
+  }
+
+  .cart-box{
+    padding:26px;
+  }
+
+  .payment-box{
+    padding:22px;
+  }
+
+  .contact-card{
+    grid-template-columns:50px 1fr;
+    padding:22px;
+  }
+
+  .contact-card strong{
+    font-size:24px;
+  }
+
+  .contact-card p{
+    font-size:20px;
   }
 }
