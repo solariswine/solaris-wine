@@ -1,0 +1,22 @@
+{
+  "buildCommand": "npm install",
+  "functions": {
+    "api/order.js": {
+      "runtime": "nodejs20.x",
+      "memory": 512,
+      "maxDuration": 30
+    },
+    "api/contact.js": {
+      "runtime": "nodejs20.x",
+      "memory": 512,
+      "maxDuration": 30
+    }
+  },
+  "env": [
+    "GMAIL_USER",
+    "GMAIL_PASS",
+    "LINE_CHANNEL_ID",
+    "LINE_CHANNEL_SECRET",
+    "LINE_ACCESS_TOKEN"
+  ]
+}
