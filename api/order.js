@@ -7,6 +7,26 @@
 
 const nodemailer = require('nodemailer');
 
+// Public base URL of the live site (used to build absolute image links in emails)
+const SITE_URL = process.env.SITE_URL || 'https://www.solariswine.com';
+
+// Wine name -> public image path. Files live in /images on the site.
+const WINE_IMAGES = {
+  'Mariana Red 2024': '/images/mariana-red-2024.png',
+  'Mariana White 2024': '/images/mariana-white-2024.png',
+  'Mariana Rosé 2024': '/images/mariana-rose-2024.png',
+  'Goivo 2024': '/images/goivo-2024.png',
+  'Alicante Bouschet 2023': '/images/alicante-bouschet-2023.png',
+  'Rocim Vindima 2024': '/images/rocim-vindima-2024.png',
+  'Rocim White 2024': '/images/rocim-white-2024.png',
+  'Rocim Red Reserva 2023': '/images/rocim-red-reserva-2023.png',
+  'Vale da Mata Red 2024': '/images/vale-da-mata-red-2024.png',
+  'Vale da Mata White 2024': '/images/vale-da-mata-white-2024.png',
+  'Raio de Luz Red 2024': '/images/raio-de-luz-red-2024.png',
+  'Raio de Luz White 2024': '/images/raio-de-luz-white-2024.png',
+};
+const wineImage = name => (WINE_IMAGES[name] ? SITE_URL + WINE_IMAGES[name] : '');
+
 // Allow large payloads (the payment slip is base64)
 module.exports.config = { api: { bodyParser: { sizeLimit: '8mb' } } };
 
@@ -134,7 +154,7 @@ async function sendCustomerEmail({ ref, customer, items = [], itemLines, total }
     `รายการสั่งซื้อ:\n${itemLines}\n` +
     `ยอดรวม: ${baht(total)}\n` +
     `จัดส่งไปที่: ${customer.address || '-'}\n\n` +
-    `หากมีคำถาม ตอบกลับอีเมลฉบับนี้ได้เลย เรายินดีดูแลด้วยความจริงใจ\n\n` +
+    `หากมีคำถาม ตอบกลับอีเมลฉบับนี้ได้เลย เรายินดีดูแลคุณด้วยความจริงใจ\n\n` +
     `================================\n\n` +
     `Hello ${customer.name},\n\n` +
     `Thank you so much for choosing Solaris Wine 🍷\n` +
@@ -147,17 +167,20 @@ async function sendCustomerEmail({ ref, customer, items = [], itemLines, total }
     `Warm regards,\nThe Solaris Wine Team`;
 
   // HTML rows — shows a small bottle image when item.image (a public URL) exists
-  const rows = items.map(it => `
+  const rows = items.map(it => {
+    const img = it.image || wineImage(it.name);
+    return `
     <tr>
       <td style="padding:10px 0;border-bottom:1px solid #eee;vertical-align:middle;">
-        ${it.image ? `<img src="${it.image}" alt="" width="34" style="vertical-align:middle;margin-right:10px;border-radius:3px;">` : ''}
+        ${img ? `<img src="${img}" alt="" width="34" style="vertical-align:middle;margin-right:10px;border-radius:3px;">` : ''}
         <span style="color:#2b2b2b;">${it.name}</span>
         <span style="color:#999;">&times;${it.qty}</span>
       </td>
       <td style="padding:10px 0;border-bottom:1px solid #eee;text-align:right;color:#2b2b2b;white-space:nowrap;">
         ${baht(it.subtotal)}
       </td>
-    </tr>`).join('');
+    </tr>`;
+  }).join('');
 
   const html = `
   <div style="margin:0;padding:24px;background:#f4f1ec;font-family:Arial,Helvetica,sans-serif;">
