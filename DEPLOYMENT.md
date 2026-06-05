@@ -28,10 +28,10 @@ In Vercel Dashboard → Settings → Environment Variables:
 
 ```
 GMAIL_USER = info@solariswine.com
-GMAIL_PASS = oqqg bzyu fnnj idyo
-LINE_CHANNEL_ID = 2010287003
+GMAIL_PASS = <ใส่ใน Vercel เท่านั้น>
+LINE_CHANNEL_ID = U76f6ce4856a1a2ca75098f78d49c1586
 LINE_CHANNEL_SECRET = e7a1fd3706db5ae04049730dd80318ff
-LINE_ACCESS_TOKEN = Blix/RRUKw1xY8CNxEea0zBBuXejH4L9MFmF+2QWYxhdkoX0o6miwM45fcBOLFuvEbyzuvY+PYQ6fniM3ZWLJM4T/ObdB4hMkemL0pHwHkchS/xnCilXWJ7RqzJ2vldrm3W7GZ3aIMVVuCJbPElKNAdB04t89/1O/w1cDnyilFU=
+LINE_ACCESS_TOKEN = <ใส่ใน Vercel เท่านั้น>
 ```
 
 **Step 3: Domain Setup**
