@@ -302,7 +302,7 @@ function handleSubmit(e) {
   })
   .then(res => res.ok ? res.json() : Promise.reject('Error'))
   .then(data => {
-    msg.textContent = '✓ Message sent! We'll be in touch soon.';
+    msg.textContent = "✓ ส่งข้อความแล้ว เราจะติดต่อกลับโดยเร็ว / Message sent! We'll be in touch soon.";
     msg.classList.add('success');
     document.getElementById('contactForm').reset();
     setTimeout(() => {
