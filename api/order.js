@@ -44,8 +44,14 @@ module.exports = async (req, res) => {
     // ---- 1) LINE notification (don't fail the whole order if LINE errors) ----
     await sendLine(text).catch(err => console.error('LINE error:', err.message));
 
-    // ---- 2) Email with slip attached ----
+    // ---- 2) Email to YOU (shop) with slip attached ----
     await sendEmail({ ref, text, slip }).catch(err => console.error('Email error:', err.message));
+
+    // ---- 3) Confirmation email to the CUSTOMER (only if they gave an email) ----
+    if (customer.email) {
+      await sendCustomerEmail({ ref, customer, itemLines, total })
+        .catch(err => console.error('Customer email error:', err.message));
+    }
 
     return res.status(200).json({ ok: true, ref });
   } catch (err) {
@@ -103,5 +109,41 @@ async function sendEmail({ ref, text, slip }) {
     subject: `New Order ${ref} — Solaris Wine`,
     text,
     attachments,
+  });
+}
+
+// --- Confirmation email to the customer ---
+async function sendCustomerEmail({ ref, customer, itemLines, total }) {
+  const user = process.env.GMAIL_USER;
+  const pass = process.env.GMAIL_PASS;
+  if (!user || !pass) return;
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: { user, pass },
+  });
+
+  const text =
+    `สวัสดีคุณ ${customer.name},\n\n` +
+    `ขอบคุณสำหรับคำสั่งซื้อกับ Solaris Wine 🍷\n` +
+    `เราได้รับออเดอร์และสลิปของคุณเรียบร้อยแล้ว และจะดำเนินการจัดส่งโดยเร็วที่สุด\n\n` +
+    `หมายเลขออเดอร์: ${ref}\n\n` +
+    `รายการสั่งซื้อ\n` +
+    `${itemLines}\n` +
+    `ยอดรวม: ฿${Number(total).toLocaleString()}\n\n` +
+    `จัดส่งไปที่: ${customer.address || '-'}\n\n` +
+    `หากมีคำถาม ตอบกลับอีเมลนี้ได้เลย\n` +
+    `— Solaris Wine\n` +
+    `------------------------------------------------\n` +
+    `Hello ${customer.name},\n` +
+    `Thank you for your order with Solaris Wine.\n` +
+    `We've received your order and payment slip and will ship it shortly.\n` +
+    `Order ref: ${ref} · Total: ฿${Number(total).toLocaleString()}`;
+
+  await transporter.sendMail({
+    from: `"Solaris Wine" <${user}>`,
+    to: customer.email,
+    subject: `ยืนยันคำสั่งซื้อ ${ref} — Solaris Wine`,
+    text,
   });
 }
