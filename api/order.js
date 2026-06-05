@@ -49,7 +49,7 @@ module.exports = async (req, res) => {
 
     // ---- 3) Confirmation email to the CUSTOMER (only if they gave an email) ----
     if (customer.email) {
-      await sendCustomerEmail({ ref, customer, itemLines, total })
+      await sendCustomerEmail({ ref, customer, items, itemLines, total })
         .catch(err => console.error('Customer email error:', err.message));
     }
 
@@ -112,8 +112,8 @@ async function sendEmail({ ref, text, slip }) {
   });
 }
 
-// --- Confirmation email to the customer ---
-async function sendCustomerEmail({ ref, customer, itemLines, total }) {
+// --- Confirmation email to the customer (bilingual TH / EN, HTML) ---
+async function sendCustomerEmail({ ref, customer, items = [], itemLines, total }) {
   const user = process.env.GMAIL_USER;
   const pass = process.env.GMAIL_PASS;
   if (!user || !pass) return;
@@ -123,27 +123,93 @@ async function sendCustomerEmail({ ref, customer, itemLines, total }) {
     auth: { user, pass },
   });
 
+  const baht = n => '฿' + Number(n || 0).toLocaleString();
+
+  // Plain-text fallback (TH + EN) for mail clients that block HTML
   const text =
     `สวัสดีคุณ ${customer.name},\n\n` +
-    `ขอบคุณสำหรับคำสั่งซื้อกับ Solaris Wine 🍷\n` +
-    `เราได้รับออเดอร์และสลิปของคุณเรียบร้อยแล้ว และจะดำเนินการจัดส่งโดยเร็วที่สุด\n\n` +
-    `หมายเลขออเดอร์: ${ref}\n\n` +
-    `รายการสั่งซื้อ\n` +
-    `${itemLines}\n` +
-    `ยอดรวม: ฿${Number(total).toLocaleString()}\n\n` +
+    `ขอบคุณจากใจที่เลือก Solaris Wine 🍷\n` +
+    `เราได้รับคำสั่งซื้อและสลิปของคุณเรียบร้อยแล้ว ทีมงานจะตรวจสอบการชำระเงินและจัดส่งให้โดยเร็วที่สุด\n\n` +
+    `หมายเลขออเดอร์: ${ref}\n` +
+    `รายการสั่งซื้อ:\n${itemLines}\n` +
+    `ยอดรวม: ${baht(total)}\n` +
     `จัดส่งไปที่: ${customer.address || '-'}\n\n` +
-    `หากมีคำถาม ตอบกลับอีเมลนี้ได้เลย\n` +
-    `— Solaris Wine\n` +
-    `------------------------------------------------\n` +
-    `Hello ${customer.name},\n` +
-    `Thank you for your order with Solaris Wine.\n` +
-    `We've received your order and payment slip and will ship it shortly.\n` +
-    `Order ref: ${ref} · Total: ฿${Number(total).toLocaleString()}`;
+    `หากมีคำถาม ตอบกลับอีเมลฉบับนี้ได้เลย เรายินดีดูแลด้วยความจริงใจ\n\n` +
+    `================================\n\n` +
+    `Hello ${customer.name},\n\n` +
+    `Thank you so much for choosing Solaris Wine 🍷\n` +
+    `We have received your order and payment slip. Our team will verify your payment and ship your wines as soon as possible.\n\n` +
+    `Order number: ${ref}\n` +
+    `Your items:\n${itemLines}\n` +
+    `Total: ${baht(total)}\n` +
+    `Shipping to: ${customer.address || '-'}\n\n` +
+    `If you have any questions, simply reply to this email. We're happy to help.\n\n` +
+    `Warm regards,\nThe Solaris Wine Team`;
+
+  // HTML rows — shows a small bottle image when item.image (a public URL) exists
+  const rows = items.map(it => `
+    <tr>
+      <td style="padding:10px 0;border-bottom:1px solid #eee;vertical-align:middle;">
+        ${it.image ? `<img src="${it.image}" alt="" width="34" style="vertical-align:middle;margin-right:10px;border-radius:3px;">` : ''}
+        <span style="color:#2b2b2b;">${it.name}</span>
+        <span style="color:#999;">&times;${it.qty}</span>
+      </td>
+      <td style="padding:10px 0;border-bottom:1px solid #eee;text-align:right;color:#2b2b2b;white-space:nowrap;">
+        ${baht(it.subtotal)}
+      </td>
+    </tr>`).join('');
+
+  const html = `
+  <div style="margin:0;padding:24px;background:#f4f1ec;font-family:Arial,Helvetica,sans-serif;">
+    <div style="max-width:560px;margin:0 auto;background:#ffffff;border:1px solid #e6e0d6;">
+      <div style="background:#0A0806;padding:22px 28px;text-align:center;">
+        <div style="color:#BF9540;font-size:20px;letter-spacing:2px;font-weight:bold;">SOLARIS WINE</div>
+        <div style="color:#8a8276;font-size:10px;letter-spacing:3px;margin-top:4px;">BY SOLARIS INTERTRADE</div>
+      </div>
+      <div style="padding:28px;">
+        <h2 style="margin:0 0 6px;color:#1f1f1f;font-size:20px;">ขอบคุณสำหรับคำสั่งซื้อ 🍷</h2>
+        <p style="margin:0 0 18px;color:#555;font-size:14px;line-height:1.7;">
+          สวัสดีคุณ <strong>${customer.name}</strong>,<br>
+          ขอบคุณจากใจที่เลือก Solaris Wine เราได้รับคำสั่งซื้อและสลิปของคุณเรียบร้อยแล้ว
+          ทีมงานจะตรวจสอบการชำระเงินและจัดส่งให้โดยเร็วที่สุด
+        </p>
+
+        <div style="background:#faf7f2;border:1px solid #ece5d8;padding:14px 16px;margin-bottom:16px;">
+          <span style="color:#999;font-size:11px;letter-spacing:1px;">หมายเลขออเดอร์ / ORDER</span><br>
+          <strong style="color:#BF9540;font-size:18px;letter-spacing:1px;">${ref}</strong>
+        </div>
+
+        <table style="width:100%;border-collapse:collapse;font-size:14px;">${rows}
+          <tr>
+            <td style="padding:12px 0 0;font-weight:bold;color:#1f1f1f;">ยอดรวม / Total</td>
+            <td style="padding:12px 0 0;text-align:right;font-weight:bold;color:#BF9540;font-size:16px;">${baht(total)}</td>
+          </tr>
+        </table>
+
+        <p style="margin:18px 0 0;color:#555;font-size:13px;line-height:1.7;">
+          <strong>จัดส่งไปที่ / Shipping to:</strong><br>${customer.address || '-'}
+        </p>
+
+        <hr style="border:none;border-top:1px solid #eee;margin:22px 0;">
+
+        <p style="margin:0;color:#777;font-size:13px;line-height:1.7;">
+          Hello <strong>${customer.name}</strong>, thank you so much for choosing Solaris Wine.
+          We've received your order and payment slip, and will verify your payment and ship your
+          wines as soon as possible. If you have any questions, simply reply to this email.
+        </p>
+        <p style="margin:18px 0 0;color:#999;font-size:13px;">
+          ด้วยความขอบคุณ / Warm regards,<br>
+          <strong style="color:#1f1f1f;">The Solaris Wine Team</strong>
+        </p>
+      </div>
+    </div>
+  </div>`;
 
   await transporter.sendMail({
     from: `"Solaris Wine" <${user}>`,
     to: customer.email,
-    subject: `ยืนยันคำสั่งซื้อ ${ref} — Solaris Wine`,
+    subject: `ยืนยันคำสั่งซื้อ ${ref} / Order Confirmation — Solaris Wine`,
     text,
+    html,
   });
 }
