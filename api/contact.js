@@ -10,12 +10,13 @@ module.exports = async (req, res) => {
 
   try {
     const data = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
-    const { name, email, phone, message } = data || {};
+    const { name, email, phone, message, inquiry } = data || {};
     if (!name || (!email && !phone)) return res.status(400).json({ error: 'Missing fields' });
 
     const text =
       `✉️ ข้อความติดต่อใหม่ / NEW ENQUIRY\n` +
       `ชื่อ: ${name}\n` +
+      (inquiry ? `ประเภท: ${inquiry}\n` : '') +
       (email ? `อีเมล: ${email}\n` : '') +
       (phone ? `โทร: ${phone}\n` : '') +
       `\n${message || '-'}`;
