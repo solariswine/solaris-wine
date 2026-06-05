@@ -114,6 +114,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .contact-left{animation:fadeIn 0.6s ease 0.3s both;}
 .contact-form{animation:fadeIn 0.6s ease 0.45s both;}
 </style>
+<!-- ========== READABILITY + MOBILE PATCH (added) ========== -->
+<style id="sw-readability-patch">
+/* 1) Higher-contrast text (was very faint grey on black) */
+:root{
+  --muted:rgba(237,229,216,0.74);
+  --muted2:rgba(237,229,216,0.52);
+}
+/* slightly less thin body weight so small text reads on phones */
+body{font-weight:400;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;}
+/* form inputs >=16px so iOS doesn't auto-zoom */
+input,select,textarea{font-size:16px !important;}
+
+/* 2) Phone typography bump */
+@media(max-width:600px){
+  html{font-size:17px;}
+}
+</style>
+
 </head>
 <body>
 

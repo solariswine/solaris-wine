@@ -150,6 +150,39 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 @keyframes fadeIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 .wg-card{animation:fadeIn 0.4s ease both;}
 </style>
+<!-- ========== READABILITY + MOBILE PATCH (added) ========== -->
+<style id="sw-readability-patch">
+/* 1) Higher-contrast text (was very faint grey on black) */
+:root{
+  --muted:rgba(237,229,216,0.74);
+  --muted2:rgba(237,229,216,0.52);
+}
+/* slightly less thin body weight so small text reads on phones */
+body{font-weight:400;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;}
+/* form inputs >=16px so iOS doesn't auto-zoom */
+input,select,textarea{font-size:16px !important;}
+
+/* 2) Phone typography bump */
+@media(max-width:600px){
+  html{font-size:17px;}
+}
+</style>
+
+<style id="sw-wines-patch">
+@media(max-width:600px){
+  .pi-text{font-size:0.95rem;line-height:1.85;}
+  .pi-grape{font-size:0.74rem;}
+  .pi-lbl{font-size:0.66rem;}
+  .pi-spec-lbl,.pi-terrain-lbl{font-size:0.62rem;}
+  .pi-spec-val,.pi-terrain-val{font-size:0.9rem;}
+  .pa-pill-label{font-size:0.58rem;}
+  .pa-pill-val{font-size:0.84rem;}
+  .ph-tag{font-size:0.68rem;}
+  .fp{font-size:0.74rem;padding:0.5rem 1.1rem;}
+  .p-add-btn{font-size:0.76rem;}
+}
+</style>
+
 </head>
 <body>
 <nav>

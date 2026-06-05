@@ -293,6 +293,68 @@ footer p{font-size:0.6rem;color:var(--muted2);}
   .co-left{border-right:none;border-bottom:0.5px solid var(--border);}
 }
 </style>
+<!-- ========== READABILITY + MOBILE PATCH (added) ========== -->
+<style id="sw-readability-patch">
+/* 1) Higher-contrast text (was very faint grey on black) */
+:root{
+  --muted:rgba(237,229,216,0.74);
+  --muted2:rgba(237,229,216,0.52);
+}
+/* slightly less thin body weight so small text reads on phones */
+body{font-weight:400;-webkit-text-size-adjust:100%;text-rendering:optimizeLegibility;}
+/* form inputs >=16px so iOS doesn't auto-zoom */
+input,select,textarea{font-size:16px !important;}
+
+/* 2) Phone typography bump */
+@media(max-width:600px){
+  html{font-size:17px;}
+}
+</style>
+
+<style id="sw-index-patch">
+@media(max-width:600px){
+  /* wine cards on the home catalogue */
+  .card-region{font-size:0.64rem;}
+  .card-name{font-size:1.3rem;}
+  .card-year{font-size:0.82rem;}
+  .card-grapes{font-size:0.82rem;line-height:1.6;}
+  .card-notes{font-size:0.9rem;line-height:1.7;}
+  .hero-desc,.prod-left p,.prod-right p{font-size:0.95rem;line-height:1.85;}
+  .filter-pill{font-size:0.74rem;padding:0.5rem 1.15rem;}
+  .nav-brand small{font-size:0.62rem;}
+  .ag-sub{font-size:0.92rem;}
+  .ag-law{font-size:0.74rem;line-height:1.7;}
+  .ag-question{font-size:0.84rem;}
+  .ag-yes,.ag-no{font-size:0.82rem;}
+  .strip-label{font-size:0.72rem;}
+  /* checkout copy */
+  .co-field label{font-size:0.7rem;}
+  .co-item-name,.co-item-price{font-size:0.88rem;}
+  .qr-acct{font-size:0.88rem;}
+  .qr-acct strong{font-size:0.9rem;}
+  .qr-method{font-size:0.64rem;}
+  .upload-area p{font-size:0.82rem;}
+}
+
+/* ---- FIX: payment QR + checkout fits the phone screen (no clipped scroll) ---- */
+@media(max-width:600px){
+  .co-modal{padding:0;align-items:stretch;}
+  .co-box{
+    width:100vw;max-width:100vw;
+    height:100dvh;max-height:100dvh;
+    border:none;border-radius:0;
+  }
+  /* one single scroll area instead of two clipped inner panels */
+  .co-body{display:block;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+  .co-left,.co-right{overflow:visible;border-right:none;}
+  .co-left{border-bottom:0.5px solid var(--border);}
+  .qr-img-wrap img{width:200px;}
+  .qr-amount{font-size:1.8rem;}
+  /* keep the footer buttons reachable above the phone nav bar */
+  .co-footer{position:sticky;bottom:0;padding-bottom:calc(1rem + env(safe-area-inset-bottom));}
+}
+</style>
+
 </head>
 <body>
 
