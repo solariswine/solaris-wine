@@ -368,5 +368,9 @@ function showToast(msg) {
 function toggleNav(){var n=document.querySelector('.nav-links');if(n)n.classList.toggle('open');}
 document.addEventListener('click',function(e){var n=document.querySelector('.nav-links');if(!n)return;if(e.target.closest('.nav-links a'))n.classList.remove('open');});
 </script>
+
+<script>
+(function(){try{var p=new URLSearchParams(location.search).get('inquiry');if(!p)return;var s=document.getElementById('inquiry');if(s){s.value=p;var f=s.closest('form')||document.querySelector('form');if(f)f.scrollIntoView({behavior:'smooth'});}}catch(e){}})();
+</script>
 </body>
 </html>
