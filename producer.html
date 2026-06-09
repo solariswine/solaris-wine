@@ -128,6 +128,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   .nav-links a{display:block;padding:1rem 1.5rem;border-bottom:0.5px solid var(--border2);font-size:0.85rem;}
 }
 </style>
+
+<style id="sw-logo-responsive">
+/* Logo scales smoothly with screen size (mobile -> desktop) */
+.nav-logo img{height:clamp(38px,8vw,54px) !important;width:clamp(38px,8vw,54px) !important;}
+.footer-left img{height:clamp(30px,7vw,40px) !important;width:clamp(30px,7vw,40px) !important;}
+.ag-logo{width:clamp(92px,26vw,150px) !important;height:clamp(92px,26vw,150px) !important;}
+</style>
+
+<style id="sw-fluid-type">
+/* Fluid base font size: scales smoothly between mobile and desktop.
+   ~16px on small phones, up to ~18px on large screens. All rem text follows. */
+html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
+</style>
 </head>
 <body>
 

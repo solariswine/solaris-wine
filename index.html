@@ -375,6 +375,19 @@ input,select,textarea{font-size:16px !important;}
 .wines-deco{position:absolute;top:-30px;right:-30px;width:300px;max-width:55vw;opacity:0.10;pointer-events:none;z-index:0;}
 @media(max-width:600px){.wines-deco{width:220px;top:-10px;right:-30px;opacity:0.08;}}
 </style>
+
+<style id="sw-logo-responsive">
+/* Logo scales smoothly with screen size (mobile -> desktop) */
+.nav-logo img{height:clamp(38px,8vw,54px) !important;width:clamp(38px,8vw,54px) !important;}
+.footer-left img{height:clamp(30px,7vw,40px) !important;width:clamp(30px,7vw,40px) !important;}
+.ag-logo{width:clamp(92px,26vw,150px) !important;height:clamp(92px,26vw,150px) !important;}
+</style>
+
+<style id="sw-fluid-type">
+/* Fluid base font size: scales smoothly between mobile and desktop.
+   ~16px on small phones, up to ~18px on large screens. All rem text follows. */
+html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
+</style>
 </head>
 <body>
 
