@@ -141,6 +141,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
    ~16px on small phones, up to ~18px on large screens. All rem text follows. */
 html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 </style>
+
+<style id="sw-range-bg">
+.range-bg{position:relative;background-image:linear-gradient(rgba(10,8,6,0.82),rgba(10,8,6,0.92)),url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg/1280px-Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg');background-size:cover;background-position:center;}
+.range-bg .range{background:rgba(191,149,64,0.18);}
+.range-bg .range-item{background:rgba(12,9,7,0.66);backdrop-filter:blur(2px);}
+</style>
 </head>
 <body>
 
@@ -234,7 +240,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 
 
 <!-- RANGE -->
-<section class="sec">
+<section class="sec range-bg">
   <div class="sec-head">
     <div class="sec-tag" style="justify-content:center">The Range</div>
     <h2>Many styles, <em>one origin</em></h2>
