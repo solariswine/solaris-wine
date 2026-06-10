@@ -200,46 +200,120 @@
     "Get in Touch": "ติดต่อเรา"
   };
 
+  // ---- Dynamic strings created by the page's own JS (cart / checkout / toasts) ----
+  var DYN = {
+    "✓ In Cart": "✓ ในตะกร้า",
+    "Select a quantity first": "กรุณาเลือกจำนวนก่อน",
+    "Continue to Payment →": "ไปต่อที่การชำระเงิน →",
+    "Confirm & Send Order →": "ยืนยันและส่งคำสั่งซื้อ →",
+    "✓ Slip uploaded": "✓ อัปโหลดสลิปแล้ว",
+    "Please fill in required fields": "กรุณากรอกข้อมูลที่จำเป็น",
+    "Please upload your payment slip": "กรุณาอัปโหลดสลิปการชำระเงิน",
+    "Order Summary": "สรุปคำสั่งซื้อ",
+    "Your Details": "ข้อมูลของคุณ",
+    "Full Name": "ชื่อ-นามสกุล",
+    "Delivery Address": "ที่อยู่จัดส่ง",
+    "Delivery": "การจัดส่ง",
+    "Notes (optional)": "หมายเหตุ (ถ้ามี)",
+    "Order Reference": "หมายเลขอ้างอิงคำสั่งซื้อ",
+    "Order Confirmed!": "ยืนยันคำสั่งซื้อแล้ว!",
+    "Confirmation sent": "ส่งการยืนยันแล้ว",
+    "Slip verified": "ตรวจสอบสลิปแล้ว",
+    "Upload Payment Slip": "อัปโหลดสลิปการชำระเงิน",
+    "What happens next": "ขั้นตอนถัดไป",
+    "Order Summary": "สรุปคำสั่งซื้อ",
+    "Subtotal": "ยอดรวมย่อย",
+    "Total": "รวมทั้งหมด",
+    "Qty": "จำนวน",
+    "Remove": "ลบ",
+    "TBC": "รอแจ้ง",
+    "Special instructions, preferred delivery time...": "คำขอพิเศษ เวลาจัดส่งที่สะดวก...",
+    "Street, District, Province, Postcode": "ถนน เขต/อำเภอ จังหวัด รหัสไปรษณีย์",
+    "e.g. Khun Somchai Rakwine": "เช่น คุณสมชาย รักไวน์"
+  };
+  for (var k in DYN) { if (!(k in TH)) TH[k] = DYN[k]; }
+
+  // Pattern rules for strings containing numbers/names (EN -> TH)
+  var PATTERNS = [
+    [/^(\d+) items?$/, function (m) { return m[1] + " รายการ"; }],
+    [/^Add (\d+) to Cart$/, function (m) { return "ใส่ตะกร้า " + m[1] + " ขวด"; }],
+    [/^(.+) added$/, function (m) { return m[1] + " เพิ่มแล้ว"; }]
+  ];
+  function patternTH(norm) {
+    for (var i = 0; i < PATTERNS.length; i++) {
+      var mm = norm.match(PATTERNS[i][0]);
+      if (mm) return PATTERNS[i][1](mm);
+    }
+    return null;
+  }
+
   var NAV_LABEL = { en: "ไทย", th: "EN" };
   var lang = (function () { try { return localStorage.getItem('sw_lang') || 'en'; } catch (e) { return 'en'; } })();
 
   var orig = (typeof WeakMap !== 'undefined') ? new WeakMap() : null;
-  var textNodes = [];
-  var phNodes = [];
+  var observer = null;
 
-  function collect(node) {
-    if (node.nodeType === 3) {
-      var norm = node.nodeValue.replace(/\s+/g, ' ').trim();
-      if (norm && TH[norm]) {
-        if (orig && !orig.has(node)) orig.set(node, node.nodeValue);
-        textNodes.push([node, norm]);
+  function thFor(norm) { return TH[norm] || patternTH(norm); }
+
+  // Translate a single text node to language l
+  function tNode(node, l) {
+    var norm = node.nodeValue.replace(/\s+/g, ' ').trim();
+    if (!norm) return;
+    if (l === 'th') {
+      var th = thFor(norm);
+      if (th == null) return;
+      if (orig && !orig.has(node)) orig.set(node, node.nodeValue);
+      if (node.nodeValue !== th) node.nodeValue = th;
+    } else {
+      if (orig && orig.has(node)) {
+        var o = orig.get(node);
+        if (node.nodeValue !== o) node.nodeValue = o;
       }
-    } else if (node.nodeType === 1) {
-      var t = node.tagName.toLowerCase();
-      if (t === 'script' || t === 'style' || t === 'svg') return;
-      var ph = node.getAttribute && node.getAttribute('placeholder');
-      if (ph && TH[ph.trim()]) phNodes.push([node, ph]);
-      for (var c = node.firstChild; c; c = c.nextSibling) collect(c);
     }
   }
 
+  // Walk an element subtree applying language l
+  function walk(node, l) {
+    if (node.nodeType === 3) { tNode(node, l); return; }
+    if (node.nodeType !== 1) return;
+    var t = node.tagName.toLowerCase();
+    if (t === 'script' || t === 'style' || t === 'svg') return;
+    var ph = node.getAttribute && node.getAttribute('placeholder');
+    if (ph) {
+      var pn = ph.trim();
+      if (l === 'th' && TH[pn]) node.setAttribute('placeholder', TH[pn]);
+    }
+    for (var c = node.firstChild; c; c = c.nextSibling) walk(c, l);
+  }
+
   function apply(l) {
-    for (var i = 0; i < textNodes.length; i++) {
-      var n = textNodes[i][0], key = textNodes[i][1];
-      n.nodeValue = (l === 'th') ? TH[key] : (orig ? orig.get(n) : key);
-    }
-    for (var j = 0; j < phNodes.length; j++) {
-      var e = phNodes[j][0], o = phNodes[j][1];
-      e.setAttribute('placeholder', (l === 'th') ? TH[o.trim()] : o);
-    }
-    if (TH[document.title.trim()]) {
-      if (l === 'th') { document.title = TH[document.title.trim()]; }
-    }
+    if (observer) observer.disconnect();
+    walk(document.body, l);
+    if (TH[document.title.trim()] && l === 'th') document.title = TH[document.title.trim()];
     document.documentElement.setAttribute('lang', l === 'th' ? 'th' : 'en');
     var btn = document.getElementById('sw-lang-toggle');
     if (btn) btn.textContent = NAV_LABEL[l];
     lang = l;
     try { localStorage.setItem('sw_lang', l); } catch (e) {}
+    if (observer) observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  }
+
+  // Re-translate dynamically added/changed content while in Thai mode
+  function startObserver() {
+    if (typeof MutationObserver === 'undefined') return;
+    observer = new MutationObserver(function (muts) {
+      if (lang !== 'th') return;
+      observer.disconnect();
+      for (var i = 0; i < muts.length; i++) {
+        var mu = muts[i];
+        if (mu.type === 'characterData') { tNode(mu.target, 'th'); }
+        else {
+          for (var j = 0; j < mu.addedNodes.length; j++) walk(mu.addedNodes[j], 'th');
+        }
+      }
+      observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+    });
+    observer.observe(document.body, { childList: true, subtree: true, characterData: true });
   }
 
   function addButton() {
@@ -260,9 +334,9 @@
   }
 
   function init() {
-    collect(document.body);
     addButton();
-    if (lang === 'th') apply('th');
+    apply(lang);          // translate current DOM to saved language
+    startObserver();      // keep translating dynamic content while in Thai
   }
 
   if (document.readyState === 'loading') {
