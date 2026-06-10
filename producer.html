@@ -143,16 +143,18 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 </style>
 
 
-<style id="sw-producer-photos">
-.panel.has-photo .illus{display:none;}
-.panel.has-photo{background-size:cover;background-position:center;}
-.panel.has-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,6,0.30),rgba(10,8,6,0.72));z-index:0;}
-.panel.has-photo .panel-cap{z-index:2;background:rgba(10,8,6,0.55);padding:0.5rem 0;}
-.panel-vineyard{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Vincent_Van_Gogh_-_The_Green_Vineyard_(1888).jpg/1024px-Vincent_Van_Gogh_-_The_Green_Vineyard_(1888).jpg');}
-.panel-talha{background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Pieter_Claesz._-_Still_Life_with_Stoneware_Jug,_Wine_Glass,_Herring,_and_Bread_-_13.458_-_Museum_of_Fine_Arts.jpg/1024px-Pieter_Claesz._-_Still_Life_with_Stoneware_Jug,_Wine_Glass,_Herring,_and_Bread_-_13.458_-_Museum_of_Fine_Arts.jpg');}
-.range-bg{position:relative;background-image:linear-gradient(rgba(10,8,6,0.86),rgba(10,8,6,0.93)),url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Jan_Davidsz_de_Heem_-_Still_Life_with_Grapes.jpg/1024px-Jan_Davidsz_de_Heem_-_Still_Life_with_Grapes.jpg');background-size:cover;background-position:center;}
-.range-bg .range{background:rgba(191,149,64,0.18);}
-.range-bg .range-item{background:rgba(12,9,7,0.62);backdrop-filter:blur(2px);}
+
+<style id="sw-photos-local">
+.panel{position:relative;overflow:hidden;}
+.panel-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.panel-shade{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(10,8,6,0.25),rgba(10,8,6,0.72));pointer-events:none;}
+.panel .panel-cap{z-index:3;background:rgba(10,8,6,0.5);padding:0.5rem 0;}
+.range-sec{position:relative;overflow:hidden;}
+.range-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.range-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(10,8,6,0.85),rgba(10,8,6,0.93));pointer-events:none;}
+.range-sec .sec-head,.range-sec .range{position:relative;z-index:2;}
+.range-sec .range{background:rgba(191,149,64,0.18);}
+.range-sec .range-item{background:rgba(12,9,7,0.62);}
 </style>
 </head>
 <body>
@@ -186,7 +188,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
       <p>The story of Herdade do Rocim began in the year 2000, when the family&rsquo;s investment in wine took root on a roughly 120-hectare property between Vidigueira and Cuba in the Baixo Alentejo &mdash; around 70 hectares of it planted to vine.</p>
       <p>The estate works closely with its land — tending native Portuguese grape varieties alongside international ones, and farming with respect for the surrounding ecosystem.</p>
     </div>
-    <div class="panel panel-vineyard has-photo"><svg class="illus" viewBox="0 0 320 240" fill="none" stroke="#BF9540" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+    <div class="panel"><img class="panel-photo" src="images/producer-talha.jpg" alt="" onerror="this.remove()"><div class="panel-shade"></div><img class="panel-photo" src="images/producer-vineyard.jpg" alt="" onerror="this.remove()"><div class="panel-shade"></div><svg class="illus" viewBox="0 0 320 240" fill="none" stroke="#BF9540" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
 <circle cx="160" cy="74" r="26" stroke-opacity="0.9"/>
 <g stroke-opacity="0.55">
 <line x1="160" y1="28" x2="160" y2="12"/><line x1="160" y1="136" x2="160" y2="120"/>
@@ -209,7 +211,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 <!-- TALHA / PHILOSOPHY -->
 <section class="sec">
   <div class="sec-grid">
-    <div class="panel panel-talha has-photo"><svg class="illus" viewBox="0 0 200 260" fill="none" stroke="#BF9540" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
+    <div class="panel"><svg class="illus" viewBox="0 0 200 260" fill="none" stroke="#BF9540" stroke-width="1.4" xmlns="http://www.w3.org/2000/svg">
 <ellipse cx="100" cy="34" rx="34" ry="9" stroke-opacity="0.9"/>
 <path d="M66 34 C66 70 40 96 40 150 C40 210 70 244 100 244 C130 244 160 210 160 150 C160 96 134 70 134 34" stroke-opacity="0.9"/>
 <path d="M66 52 C44 60 40 86 56 96" stroke-opacity="0.6"/>
@@ -247,7 +249,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 
 
 <!-- RANGE -->
-<section class="sec range-bg">
+<section class="sec range-sec"><img class="range-photo" src="images/producer-range.jpg" alt="" onerror="this.remove()"><div class="range-shade"></div>
   <div class="sec-head">
     <div class="sec-tag" style="justify-content:center">The Range</div>
     <h2>Many styles, <em>one origin</em></h2>
