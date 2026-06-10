@@ -378,7 +378,7 @@ input,select,textarea{font-size:16px !important;}
 
 <style id="sw-logo-responsive">
 /* Logo scales smoothly with screen size (mobile -> desktop) */
-.nav-logo img{height:clamp(38px,8vw,54px) !important;width:clamp(38px,8vw,54px) !important;}
+.nav-logo img{height:clamp(46px,7vw,68px) !important;width:clamp(46px,7vw,68px) !important;}
 .footer-left img{height:clamp(30px,7vw,40px) !important;width:clamp(30px,7vw,40px) !important;}
 .ag-logo{width:clamp(92px,26vw,150px) !important;height:clamp(92px,26vw,150px) !important;}
 </style>
@@ -391,8 +391,28 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 
 <style id="sw-hero-bg">
 .hero{position:relative;}
-.hero::after{content:"";position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(10,8,6,0.86),rgba(10,8,6,0.94)),url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg/1280px-Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg');background-size:cover;background-position:center;opacity:0.55;pointer-events:none;}
+.hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(10,8,6,0.9) 0%,rgba(10,8,6,0.72) 45%,rgba(10,8,6,0.48) 100%),url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg/1280px-Vincent_van_Gogh_-_Red_Vineyard_at_Arles_(1888).jpg');background-size:cover;background-position:center;opacity:1;pointer-events:none;}
 .hero-left,.hero-right{position:relative;z-index:1;}
+</style>
+
+<style id="sw-home-section-bg">
+.producer .prod-left,.producer .prod-right{position:relative;overflow:hidden;}
+.producer .prod-left{background:linear-gradient(rgba(10,8,6,0.80),rgba(10,8,6,0.9)),url('images/producer-vineyard.jpg');background-size:cover;background-position:center;}
+.producer .prod-right{background:linear-gradient(rgba(10,8,6,0.84),rgba(10,8,6,0.92)),url('images/producer-talha.jpg');background-size:cover;background-position:center;}
+.producer .prod-left>*,.producer .prod-right>*{position:relative;z-index:1;}
+.cta{position:relative;overflow:hidden;}
+.cta::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(rgba(10,8,6,0.85),rgba(10,8,6,0.92)),url('images/producer-range.jpg');background-size:cover;background-position:center;pointer-events:none;}
+.cta>*{position:relative;z-index:1;}
+</style>
+
+<style id="sw-header-bg">
+/* Collection header band with wine-cellar background */
+.wines-deco{display:none;}
+.wines-header{position:relative;background:linear-gradient(90deg,rgba(10,8,6,0.9) 0%,rgba(10,8,6,0.68) 55%,rgba(10,8,6,0.82) 100%),url('images/collection-bg.jpg');background-size:cover;background-position:center;padding:2.4rem 3rem;border-bottom:0.5px solid var(--border);}
+.wines-header>*{position:relative;z-index:1;}
+@media(max-width:600px){.wines-header{padding:1.6rem 1.5rem;}}
+/* Tasting CTA background -> wine glasses / tavern */
+.cta::before{background:linear-gradient(rgba(10,8,6,0.8),rgba(10,8,6,0.9)),url('images/tasting-bg.jpg') !important;background-size:cover !important;background-position:center !important;}
 </style>
 </head>
 <body>
@@ -821,7 +841,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
     <h2>Rooted in tradition,<br>refined by passion</h2>
     <p>Founded in 2000, Herdade de Rocim sits on the Vidigueira fault &mdash; a unique microclimate where Atlantic breezes yield wines of exceptional freshness.</p>
     <div class="tags"><span class="tag">Amphora / Talha</span><span class="tag">Alentejo DOC</span><span class="tag">Vinho Verde</span><span class="tag">Douro DOC</span><span class="tag">Sustainability certified</span></div>
-    <a class="btn-gold" href="#">Discover the Estate</a>
+    <a class="btn-gold" href="producer.html">Discover the Estate</a>
   </div>
 </section>
 
