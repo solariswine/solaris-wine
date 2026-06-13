@@ -414,6 +414,12 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 /* Tasting CTA background -> wine glasses / tavern */
 .cta::before{background:linear-gradient(rgba(10,8,6,0.8),rgba(10,8,6,0.9)),url('images/tasting-bg.jpg') !important;background-size:cover !important;background-position:center !important;}
 </style>
+
+<style id="sw-upload-fix">
+.upload-area{z-index:0;}
+.upload-area input[type=file]{z-index:3 !important;cursor:pointer;}
+.upload-area .u-icon,.upload-area p{pointer-events:none;}
+</style>
 </head>
 <body>
 
