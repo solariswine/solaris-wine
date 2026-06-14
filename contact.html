@@ -158,6 +158,11 @@ input,select,textarea{font-size:16px !important;}
    ~16px on small phones, up to ~18px on large screens. All rem text follows. */
 html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 </style>
+
+<style id="sw-contact-hero-bg">
+.hero::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(rgba(10,8,6,0.82),rgba(10,8,6,0.9)),url('images/tasting-bg.jpg');background-size:cover;background-position:center;pointer-events:none;}
+.hero-inner{position:relative;z-index:1;}
+</style>
 </head>
 <body>
 
