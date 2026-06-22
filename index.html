@@ -400,6 +400,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 .producer .prod-left{background:linear-gradient(rgba(10,8,6,0.80),rgba(10,8,6,0.9)),url('images/producer-vineyard.jpg');background-size:cover;background-position:center;}
 .producer .prod-right{background:linear-gradient(rgba(10,8,6,0.84),rgba(10,8,6,0.92)),url('images/producer-talha.jpg');background-size:cover;background-position:center;}
 .producer .prod-left>*,.producer .prod-right>*{position:relative;z-index:1;}
+.producer .prod-left::before{display:none !important;}
 .cta{position:relative;overflow:hidden;}
 .cta::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(rgba(10,8,6,0.85),rgba(10,8,6,0.92)),url('images/producer-range.jpg');background-size:cover;background-position:center;pointer-events:none;}
 .cta>*{position:relative;z-index:1;}
