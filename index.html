@@ -421,6 +421,10 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
 .upload-area input[type=file]{z-index:3 !important;cursor:pointer;}
 .upload-area .u-icon,.upload-area p{pointer-events:none;}
 </style>
+
+<style id="sw-ba-badge">
+.ba-badge{display:inline-flex;align-items:center;gap:0.35em;margin-top:0.45rem;font-size:0.56rem;letter-spacing:0.06em;text-transform:uppercase;color:#BF9540;border:0.5px solid rgba(191,149,64,0.55);border-radius:999px;padding:0.22rem 0.65rem;line-height:1.25;background:rgba(191,149,64,0.07);}
+</style>
 </head>
 <body>
 
@@ -493,6 +497,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
     <button class="filter-pill" onclick="filterWines('red',this)">Red</button>
     <button class="filter-pill" onclick="filterWines('white',this)">White</button>
     <button class="filter-pill" onclick="filterWines('rose',this)">Ros&eacute;</button>
+    <button class="filter-pill" onclick="filterWines('reserve',this)">Reserve</button>
   </div>
   <div class="wines-track-wrap"><div class="wines-track" id="winesTrack"><div class="wine-card" data-type="red" data-id="0" data-name="Mariana Red 2024" data-price="1090" data-stock="700">
         <div class="card-visual">
@@ -774,7 +779,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
           </div>
         </div>
       </div>
-<div class="wine-card" data-type="red" data-id="7" data-name="Rocim Red Reserva 2023" data-price="1590" data-stock="20">
+<div class="wine-card" data-type="red" data-id="7" data-reserve="1" data-name="Rocim Red Reserva 2023" data-price="1590" data-stock="20">
         <div class="card-visual">
           <div class="card-tier" style="color:#D4AA55">Reserve</div>
           <div class="card-stock" style="color:#E24B4A">Only 20 left</div>
@@ -812,6 +817,7 @@ html{font-size:clamp(16px, 0.55vw + 14px, 18px) !important;}
         <div class="card-body">
           <div class="card-region">Alentejo DOC</div>
           <div class="card-name">Alicante Bouschet</div>
+          <div class="ba-badge">✈ Served in British Airways Business Class</div>
           <div class="card-year">2023</div>
           <div class="card-grapes">100% Alicante Bouschet</div>
           <div class="card-notes">&ldquo;Deep ruby. Menthol, balsamic and spicy. Firm structured tannins.&rdquo;</div>
@@ -1200,7 +1206,7 @@ document.getElementById("scrollRight").addEventListener("click",()=>track.scroll
 function filterWines(type,btn){
   document.querySelectorAll(".filter-pill").forEach(p=>p.classList.remove("active"));
   btn.classList.add("active");
-  document.querySelectorAll(".wine-card").forEach(c=>{c.style.display=(type==="all"||c.dataset.type===type)?"flex":"none";});
+  document.querySelectorAll(".wine-card").forEach(c=>{var show=(type==="all")||(type==="reserve"?c.dataset.reserve==="1":c.dataset.type===type);c.style.display=show?"flex":"none";});
   setTimeout(updateThumb,50);
 }
 let tt;
