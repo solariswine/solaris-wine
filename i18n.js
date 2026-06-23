@@ -38,6 +38,8 @@
     "Red": "แดง",
     "White": "ขาว",
     "Rosé": "โรเซ่",
+    "Reserve": "รีเสิร์ฟ",
+    "✈ Served in British Airways Business Class": "✈ เสิร์ฟบนชั้นธุรกิจ บริติช แอร์เวยส์",
 
     // ---- Card tiers / stock / actions ----
     "Entry": "ระดับเริ่มต้น",
