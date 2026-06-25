@@ -918,6 +918,7 @@ a.nav-logo:link,a.nav-logo:visited{color:var(--gold) !important;}
   <div class="footer-left"><img src="logo.png" alt="Solaris Wine"><span class="footer-brand">Solaris Wine</span></div>
   <p>&copy; 2026 Solaris Intertrade Co., Ltd. &mdash; Bangkok, Thailand</p>
   <p>solariswine@gmail.com &nbsp;&middot;&nbsp; +66 961 644 422</p>
+  <p style="font-size:0.55rem;letter-spacing:0.1em;color:var(--muted2,#555);opacity:0.5;margin-top:0.4rem;">v35 · cart-sync</p>
 </footer>
 
 </div><!-- end mainContent -->
@@ -970,6 +971,35 @@ const SKUS = [{"id": 0, "name": "Mariana Red 2024", "price": 1090, "stock": 700}
 const imgMap = {};
 document.querySelectorAll('.wine-card').forEach((card)=>{ const im=card.querySelector('.bottle-img'); if(im) imgMap[+card.dataset.id]=im.src; });
 let cart={}, cardQtys={}, coStep=0, slipFile=null, slipB64='';
+
+// ── LOAD SHARED CART (synced with wines.html via sessionStorage 'swCart') ──
+function saveCart(){ try{ sessionStorage.setItem('swCart', JSON.stringify(cart)); }catch(e){} }
+(function loadCart(){
+  try{
+    const s=JSON.parse(sessionStorage.getItem('swCart')||'{}');
+    if(s && typeof s==='object'){
+      Object.keys(s).forEach(k=>{
+        const it=s[k]; if(!it||typeof it!=='object') return;
+        const id=(it.id!=null?+it.id:+k); const sku=SKUS[id];
+        cart[id]={
+          ...(sku||{}),
+          id, name:(sku?sku.name:it.name), price:(sku?sku.price:it.price),
+          stock:(sku?sku.stock:it.stock),
+          qty:Math.max(1, Math.min((sku?sku.stock:9999), +it.qty||1)),
+          imgSrc:(it.imgSrc||imgMap[id]||'')
+        };
+      });
+    }
+  }catch(e){ cart={}; }
+})();
+// reflect imported cart on the page (badge, drawer, card states)
+try{
+  updateCartUI();
+  Object.keys(cart).forEach(id=>{
+    const c=document.querySelector(`[data-id="${id}"]`); if(c) c.classList.add('in-cart');
+    const b=document.getElementById('atc-'+id); if(b){ b.textContent='✓ In Cart'; b.classList.add('added'); }
+  });
+}catch(e){}
 
 // ── AGE GATE ──
 function ageVerified(){
@@ -1034,6 +1064,7 @@ function cartTotals(){
   return{items,qty:items.reduce((s,i)=>s+i.qty,0),price:items.reduce((s,i)=>s+i.qty*i.price,0)};
 }
 function updateCartUI(){
+  saveCart();
   const{items,qty,price}=cartTotals();
   const badge=document.getElementById('cartBadge');badge.textContent=qty;badge.classList.toggle('on',qty>0);
   document.getElementById('cartCountTxt').textContent=`${qty} item${qty!==1?'s':''}`;
