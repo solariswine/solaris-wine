@@ -125,7 +125,8 @@ async function sendEmail({ ref, text, slip }) {
 
   await transporter.sendMail({
     from: `"Solaris Wine" <${user}>`,
-    to: process.env.ORDER_EMAIL || 'orders@solariswine.com',
+    to: process.env.ORDER_EMAIL || 'info@solariswine.com',
+    bcc: process.env.ORDER_BCC || 'solariswine@gmail.com',
     subject: `New Order ${ref} — Solaris Wine`,
     text,
     attachments,
@@ -154,7 +155,7 @@ async function sendCustomerEmail({ ref, customer, items = [], itemLines, total }
     `รายการสั่งซื้อ:\n${itemLines}\n` +
     `ยอดรวม: ${baht(total)}\n` +
     `จัดส่งไปที่: ${customer.address || '-'}\n\n` +
-    `หากมีคำถาม ตอบกลับอีเมลฉบับนี้ได้เลย เรายินดีดูแลคุณด้วยความจริงใจ\n\n` +
+    `หากมีคำถาม ตอบกลับอีเมลฉบับนี้ได้เลย เรายินดีดูแลคุณครับ\n\n` +
     `================================\n\n` +
     `Hello ${customer.name},\n\n` +
     `Thank you so much for choosing Solaris Wine 🍷\n` +
